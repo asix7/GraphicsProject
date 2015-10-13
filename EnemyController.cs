@@ -17,8 +17,7 @@ namespace Project
         // Spacing and counts.
         private int rows = 0;
         private int enemiesPerRow = 8;
-        private float rowSpacing = 0.6f;
-        private float colSpacing = 0.6f;
+        private float colSpacing = 40f;
 
         // Timing and movement.
         private float stepSize = 1f;
@@ -45,17 +44,13 @@ namespace Project
         // Create a grid of enemies for the current wave.
         private void createEnemies()
         {
-            float y = game.boundaryTop;
-            for (int row = 0; row < rows; row++)
-            {
-                float x = game.boundaryLeft;
-                for (int col = 0; col < enemiesPerRow; col++)
+            float y = 80;
+            float x = 50;
+            for (int col = 0; col < enemiesPerRow; col++)
                 {
                     game.Add(new Enemy(game, new Vector3(x, y, 0)));
                     x += colSpacing;
-                }
-                y -= rowSpacing;
-            }
+                }            
         }
 
         // Frame update method.
@@ -106,17 +101,6 @@ namespace Project
             {
                 if (obj.type == GameObjectType.Enemy)
                 {
-                    Enemy enemy = (Enemy)obj;
-                    if (stepRight)
-                    {
-                        enemy.pos.X += stepSize;
-                        if (enemy.pos.X > game.boundaryRight) { stepDownNeeded = true; }
-                    }
-                    else
-                    {
-                        enemy.pos.X -= stepSize;
-                        if (enemy.pos.X < game.boundaryLeft) { stepDownNeeded = true; }
-                    }
                 }
             }
 
@@ -136,7 +120,6 @@ namespace Project
                 {
                     Enemy enemy = (Enemy)obj;
                     enemy.pos.Y -= stepSize;
-                    if (enemy.pos.Y < game.boundaryBottom) { gameOver(); }
                 }
             }
         }

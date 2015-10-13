@@ -42,47 +42,47 @@ namespace Project
         public MyModel CreateTexturedCube(String texturePath, Vector3 size)
         {
             VertexPositionTexture[] shapeArray = new VertexPositionTexture[]{
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(0.0f, 1.0f)), // Front
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, -1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, -1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, -1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, -1.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(0.0f, 1.0f)), // Front
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, -5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, -5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, -5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, -5.0f), new Vector2(1.0f, 1.0f)),
 
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, 1.0f), new Vector2(1.0f, 1.0f)), // BACK
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, 1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, 1.0f), new Vector2(1.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, 1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, 5.0f), new Vector2(1.0f, 1.0f)), // BACK
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, 5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, 5.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, 5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(0.0f, 0.0f)),
 
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, -1.0f), new Vector2(0.0f, 1.0f)), // Top
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, 1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, -1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, -1.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, -5.0f), new Vector2(0.0f, 1.0f)), // Top
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, 5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, -5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, -5.0f), new Vector2(1.0f, 1.0f)),
 
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(0.0f, 0.0f)), // Bottom
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, 1.0f), new Vector2(1.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, 1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, -1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, 1.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(0.0f, 0.0f)), // Bottom
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, 5.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, 5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, -5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, 5.0f), new Vector2(1.0f, 1.0f)),
 
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(1.0f, 1.0f)), // Left
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, 1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, 1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, -1.0f, -1.0f), new Vector2(1.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, 1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(-1.0f, 1.0f, -1.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(1.0f, 1.0f)), // Left
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, 5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, 5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, -5.0f, -5.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, 5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(-5.0f, 5.0f, -5.0f), new Vector2(1.0f, 0.0f)),
 
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, -1.0f), new Vector2(0.0f, 1.0f)), // Right
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(1.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, 1.0f), new Vector2(1.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, -1.0f, -1.0f), new Vector2(0.0f, 1.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, -1.0f), new Vector2(0.0f, 0.0f)),
-            new VertexPositionTexture(new Vector3(1.0f, 1.0f, 1.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, -5.0f), new Vector2(0.0f, 1.0f)), // Right
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(1.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, 5.0f), new Vector2(1.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, -5.0f, -5.0f), new Vector2(0.0f, 1.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, -5.0f), new Vector2(0.0f, 0.0f)),
+            new VertexPositionTexture(new Vector3(5.0f, 5.0f, 5.0f), new Vector2(1.0f, 0.0f)),
             };
 
             for (int i = 0; i < shapeArray.Length; i++)

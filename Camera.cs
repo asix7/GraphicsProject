@@ -15,7 +15,7 @@ namespace Project
 
         // Attributes
         private Vector3 thirdPersonRef;
-        private Vector3 cameraPos;
+        public Vector3 cameraPos;
         private Vector3 cameraTarget;
         private Vector3 cameraUp;
         public float cameraSpeed = 1f;
@@ -55,12 +55,12 @@ namespace Project
         public Camera(LabGame game)
         {
             thirdPersonRef = new Vector3(0, 0, -15);
-            cameraPos = new Vector3(0, 0, -15);
-            cameraTarget = new Vector3(0, 0, 0);
+            cameraPos = new Vector3(50, 50, -15);
+            cameraTarget = new Vector3(50, 0, 1000);
             cameraUp = Vector3.UnitY;
 
             View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
-            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 100.0f);
+            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
             this.game = game;
         }
 
@@ -75,13 +75,12 @@ namespace Project
             //Position = playerPos;
 
 
-            // The camera Z is moving along with player;
-            moveVector.Z = (thirdPersonRef.Z + playerPos.Z);
-            //MoveCamera(moveVector);
-            Position = moveVector;
+            cameraPos.Z = playerPos.Z - 200;
+            cameraTarget.Z = playerPos.Z + 1000;
+            cameraPos.X = playerPos.X;
 
 
-            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 100.0f);
+            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
             View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
             viewVector = cameraTarget - cameraPos;
 

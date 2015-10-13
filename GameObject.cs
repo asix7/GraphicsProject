@@ -25,7 +25,7 @@ namespace Project
         public BasicEffect basicEffect;
 
         public abstract void Update(GameTime gametime);
-        public void Draw(GameTime gametime)
+        public virtual void Draw(GameTime gametime)
         {
             // Some objects such as the Enemy Controller have no model and thus will not be drawn
             if (myModel != null)

@@ -38,17 +38,6 @@ namespace Project
             // Apply velocity to position.
             pos += vel * timeDelta;
 
-            // Remove self if off screen.
-            if (
-                pos.X < game.boundaryLeft ||
-                pos.X > game.boundaryRight ||
-                pos.Y < game.boundaryBottom ||
-                pos.Y > game.boundaryTop
-                )
-            {
-                game.Remove(this);
-            }
-
             // Set local transformation to be spinning according to time for fun.
             basicEffect.World = Matrix.RotationY(time) * Matrix.RotationZ(time * time) * Matrix.Translation(pos);
 

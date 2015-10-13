@@ -46,8 +46,9 @@ namespace Project
             txtScore.Text = "Score: " + score.ToString();
         }
 
-        public void DisplayCameraPlayerPos(Vector3 cameraPos, Vector3 cameraTarget, Vector3 playerPos)
+        public void DisplayCameraPlayerPos(Vector3 cameraPos, Vector3 cameraTarget, Vector3 playerPos, float index, float noindex)
         {
+            txtScore.Text = index.ToString() + " and " + noindex.ToString();
             txtCameraPos.Text = "Camera Position: " + cameraPos.ToString();
             txtCameraTarget.Text = "Camera Target: " + cameraTarget.ToString();
             txtPlayerPos.Text = "Player Position: " + playerPos.ToString();

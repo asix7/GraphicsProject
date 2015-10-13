@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>SURFACEPRO</Machine>
+    <WindowsUser>localtemp</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>B0A6D86180D4060C449B4B1A0ED7DA1FFF96825769F22716194E407A9FB1FECB</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3_1.0.0.0_neutral__2xgss9s9ewh1t</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3_2xgss9s9ewh1t!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Home</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-13T17:47:10.370</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
+      <PackagePath>Project.WinRTXaml.exe</PackagePath>
+      <Modified>2015-10-13T17:47:10.159</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
+      <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.352</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct2D1.dll">
+      <PackagePath>SharpDX.Direct2D1.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.445</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct3D11.dll">
+      <PackagePath>SharpDX.Direct3D11.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.623</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.dll">
+      <PackagePath>SharpDX.dll</PackagePath>
+      <Modified>2015-10-13T03:22:57.150</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.DXGI.dll">
+      <PackagePath>SharpDX.DXGI.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.392</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.MediaFoundation.dll">
+      <PackagePath>SharpDX.MediaFoundation.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.766</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Audio.dll">
+      <PackagePath>SharpDX.Toolkit.Audio.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.878</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.dll">
+      <PackagePath>SharpDX.Toolkit.dll</PackagePath>
+      <Modified>2015-10-13T03:22:57.035</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Game.dll">
+      <PackagePath>SharpDX.Toolkit.Game.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.906</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Graphics.dll">
+      <PackagePath>SharpDX.Toolkit.Graphics.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.943</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Input.dll">
+      <PackagePath>SharpDX.Toolkit.Input.dll</PackagePath>
+      <Modified>2015-10-13T03:22:56.988</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Yaml.dll">
+      <PackagePath>SharpDX.Toolkit.Yaml.dll</PackagePath>
+      <Modified>2015-10-13T03:22:57.011</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XAudio2.dll">
+      <PackagePath>SharpDX.XAudio2.dll</PackagePath>
+      <Modified>2015-10-13T03:22:57.071</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XInput.dll">
+      <PackagePath>SharpDX.XInput.dll</PackagePath>
+      <Modified>2015-10-13T03:22:57.108</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-13T03:22:56.157</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-13T03:22:56.158</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-13T03:22:56.159</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-13T03:22:56.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\enemy projectile.png">
+      <PackagePath>Content\enemy projectile.png</PackagePath>
+      <Modified>2015-10-13T03:22:56.194</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\enemy.png">
+      <PackagePath>Content\enemy.png</PackagePath>
+      <Modified>2015-10-13T03:22:56.195</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player projectile.png">
+      <PackagePath>Content\player projectile.png</PackagePath>
+      <Modified>2015-10-13T03:22:56.196</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player.png">
+      <PackagePath>Content\player.png</PackagePath>
+      <Modified>2015-10-13T03:22:56.197</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\water.jpg">
+      <PackagePath>Content\water.jpg</PackagePath>
+      <Modified>2015-10-13T04:10:31.919</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Water.tkb">
+      <PackagePath>Content\Water.tkb</PackagePath>
+      <Modified>2015-10-13T04:10:54.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
+      <PackagePath>Content\Gouraud.tkb</PackagePath>
+      <Modified>2015-10-13T03:54:22.727</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong.tkb">
+      <PackagePath>Content\Phong.tkb</PackagePath>
+      <Modified>2015-10-13T03:54:22.800</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Car.tkb">
+      <PackagePath>Content\Car.tkb</PackagePath>
+      <Modified>2015-10-13T03:54:22.911</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-10-13T03:54:24.809</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf">
+      <PackagePath>Common\StandardStyles.xbf</PackagePath>
+      <Modified>2015-10-13T03:54:24.812</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
+      <PackagePath>MainMenu.xbf</PackagePath>
+      <Modified>2015-10-13T03:54:24.814</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
+      <PackagePath>Instructions.xbf</PackagePath>
+      <Modified>2015-10-13T14:15:33.389</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-10-13T03:54:24.820</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
+      <PackagePath>Project.WinRTXaml.xr.xml</PackagePath>
+      <Modified>2015-10-13T03:54:24.683</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-10-13T17:47:10.334</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

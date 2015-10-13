@@ -1,124 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>JONE</Machine>
-    <WindowsUser>jchee</WindowsUser>
+    <Machine>SURFACEPRO</Machine>
+    <WindowsUser>localtemp</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
-    <TargetOsVersion>6.3</TargetOsVersion>
-    <TargetOsDescription>Windows 8.1</TargetOsDescription>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.D3DCompiler.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Direct2D1.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct2D1.dll">
       <PackagePath>SharpDX.Direct2D1.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Direct3D11.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct3D11.dll">
       <PackagePath>SharpDX.Direct3D11.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.dll">
       <PackagePath>SharpDX.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.DXGI.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.DXGI.dll">
       <PackagePath>SharpDX.DXGI.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.MediaFoundation.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.MediaFoundation.dll">
       <PackagePath>SharpDX.MediaFoundation.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.Audio.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Audio.dll">
       <PackagePath>SharpDX.Toolkit.Audio.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.dll">
       <PackagePath>SharpDX.Toolkit.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.Game.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Game.dll">
       <PackagePath>SharpDX.Toolkit.Game.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.Graphics.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Graphics.dll">
       <PackagePath>SharpDX.Toolkit.Graphics.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.Input.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Input.dll">
       <PackagePath>SharpDX.Toolkit.Input.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.Toolkit.Yaml.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Yaml.dll">
       <PackagePath>SharpDX.Toolkit.Yaml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.XAudio2.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XAudio2.dll">
       <PackagePath>SharpDX.XAudio2.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\SharpDX\SharpDX.XInput.dll">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XInput.dll">
       <PackagePath>SharpDX.XInput.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Content\enemy projectile.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\enemy projectile.png">
       <PackagePath>Content\enemy projectile.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Content\enemy.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\enemy.png">
       <PackagePath>Content\enemy.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Content\player projectile.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player projectile.png">
       <PackagePath>Content\player projectile.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\Content\player.png">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player.png">
       <PackagePath>Content\player.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\obj\Debug\Content\Gouraud.tkb">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\water.jpg">
+      <PackagePath>Content\water.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Water.tkb">
+      <PackagePath>Content\Water.tkb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
       <PackagePath>Content\Gouraud.tkb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\obj\Debug\Content\Phong.tkb">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\obj\Debug\Content\Car.tkb">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Car.tkb">
       <PackagePath>Content\Car.tkb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
-      <PackagePath>Project.WinRTXaml.xr.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\App.xbf">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\Common\StandardStyles.xbf">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf">
       <PackagePath>Common\StandardStyles.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\MainMenu.xbf">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
       <PackagePath>MainMenu.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\Instructions.xbf">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
       <PackagePath>Instructions.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\bin\DebugWinRTXaml\resources.pri">
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
+      <PackagePath>Project.WinRTXaml.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

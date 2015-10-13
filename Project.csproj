@@ -53,6 +53,7 @@
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyModel.cs" />
+    <Compile Include="Platforms.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -78,6 +79,8 @@
     <Content Include="Content\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <ToolkitFxc Include="Content\Water.fx" />
+    <Content Include="Content\water.jpg" />
     <ToolkitFxc Include="Content\Gouraud.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>

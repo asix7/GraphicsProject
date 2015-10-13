@@ -37,6 +37,7 @@ namespace Project
     {
         private GraphicsDeviceManager graphicsDeviceManager;
         public List<GameObject> gameObjects;
+        public List<Platforms> platforms_list;
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
         public KeyboardManager keyboardManager;
@@ -61,11 +62,9 @@ namespace Project
         // Random number generator
         public Random random;
 
-        // World boundaries that indicate where the edge of the screen is for the camera.
-        public float boundaryLeft;
-        public float boundaryRight;
-        public float boundaryTop;
-        public float boundaryBottom;
+        public float lower_bound = -60.0f;
+        public float left_bound = -20.0f;
+        public float right_bound = 120.0f;
 
         public bool started = false;
         /// <summary>
@@ -86,12 +85,6 @@ namespace Project
             random = new Random();
             input = new GameInput();
 
-            // Set boundaries.
-            boundaryLeft = -4.5f;
-            boundaryRight = 4.5f;
-            boundaryTop = 4;
-            boundaryBottom = -4.5f;
-
             // Initialise event handling.
             input.gestureRecognizer.Tapped += Tapped;
             input.gestureRecognizer.ManipulationStarted += OnManipulationStarted;
@@ -108,6 +101,7 @@ namespace Project
         {
             // Initialise game object containers.
             gameObjects = new List<GameObject>();
+            platforms_list = new List<Platforms>();
             addedGameObjects = new Stack<GameObject>();
             removedGameObjects = new Stack<GameObject>();
 
@@ -115,6 +109,16 @@ namespace Project
             player = new Player(this);
             gameObjects.Add(player);
             gameObjects.Add(new EnemyController(this));
+
+            //Number of platforms to render on screen
+            platforms_list.Add(new Platforms(this));
+            platforms_list.Add(new Platforms(this));
+            platforms_list.Add(new Platforms(this));
+            platforms_list.Add(new Platforms(this));
+            platforms_list.Add(new Platforms(this));
+            platforms_list.Add(new Platforms(this));
+
+
             
             // Create an input layout from the vertices
 
@@ -147,11 +151,18 @@ namespace Project
                     gameObjects[i].Update(gameTime);
                 }
 
+                for (int i = 0; i < platforms_list.Count; i++)
+                {
+                    platforms_list[i].Update(gameTime);
+                    platforms_list[i].Standing_Platform(player.pos);
+                    
+                }
+
                 // Update score board on the game page
-                mainPage.UpdateScore(score);
+                //mainPage.UpdateScore(score);
 
                 // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target ,player.pos);
+                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, Platforms.standing_platform.z_position_start, Platforms.standing_platform.z_position_end);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))
                 {
@@ -175,6 +186,10 @@ namespace Project
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Draw(gameTime);
+                }
+                for (int i = 0; i < platforms_list.Count; i++)
+                {
+                    platforms_list[i].Draw(gameTime);
                 }
             }
             // Handle base.Draw

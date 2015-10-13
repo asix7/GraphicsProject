@@ -15,24 +15,25 @@ namespace Project
     // Player class.
     class Player : GameObject
     {
-        //private float speed = 0.006f;
         private float projectileSpeed = 20;
 
         //player movement speed
-        private float speed = 1;
-        private float velocityX;
-        float gravity = -0.005f;
-        private float velocityY = 0.1f;
+        private float speed = 100.0f;
+        float gravity = -30f;
+        private float velocityY = 0;
+        private float initial_jump_speedY = 30.0f;
+
         bool onGround = true;
-        private float terrheight = -4f;
-        private int jump_count = 0;
+        private float terrheight = 30f;
+
+        public static float current_index;
 
         public Player(LabGame game)
         {
             this.game = game;
             type = GameObjectType.Player;
             myModel = game.assets.GetModel("player", CreatePlayerModel);
-            pos = new SharpDX.Vector3(0, game.boundaryBottom + 0.5f, 0);
+            pos = new Vector3(50, 30, 0);
             GetParamsFromModel();
         }
 
@@ -61,33 +62,32 @@ namespace Project
         // Frame update.
         public override void Update(GameTime gameTime)
         {
+            OutofBounds();
             float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
             
+            terrheight = get_TerrainH();
             if (pos.Y < terrheight)
             {
                 this.onGround = true;
                 pos.Y = terrheight;
-                velocityY = 0.1f;
             }
 
-
-            //Debug.WriteLine(pos.Y);
-
-
-            if (this.onGround == false)
+            if (pos.Y > terrheight)
             {
-                pos.Y += velocityY;
-                velocityY += gravity;
+                this.onGround = false;
             }
+
+            if (!onGround)
+            {
+                pos.Y += velocityY * deltatime;
+                velocityY += gravity * deltatime;
+            }
+
 
             // TASK 1: Determine velocity based on accelerometer reading
-            pos.X += (float)game.accelerometerReading.AccelerationX;
-
-            // Keep within the boundaries.
-            if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
-            if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
+            pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
 
             // move player forward
             pos.Z += speed * deltatime;
@@ -98,18 +98,55 @@ namespace Project
             basicEffect.View = game.camera.View;
         }
 
+        public float get_TerrainH()
+        {
+            Platforms standing_platform = Platforms.standing_platform;
+
+            int index = (int)(pos.X / standing_platform.tile_width);
+            current_index = index;
+            
+            float height;
+            if ((index > standing_platform.platform.GetLength(0) - 1) || index < 0 || pos.X < 0)
+            {
+                height = game.lower_bound;
+            }
+
+            else
+            {
+                int level = standing_platform.platform[index, 0];
+                if (level < 0)
+                {
+                    height = game.lower_bound;
+                }
+                else
+                {
+                    height = standing_platform.Levels[level];
+                }
+                
+            }
+            return height;
+        }
         // React to getting hit by an enemy bullet.
         public void Hit()
         {
             game.Exit();
         }
 
+        public void OutofBounds()
+        {
+            if (pos.Y < game.lower_bound)
+            {
+                game.Exit();
+            }            
+        }
+
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
         {
-            //fire();
-            //testStop();
-            onGround = false;
-
+            if (onGround)
+            {
+                velocityY = initial_jump_speedY;
+                onGround = false;
+            }
         }
 
         public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
@@ -117,9 +154,5 @@ namespace Project
             pos.X += (float)args.Delta.Translation.X / 100;
         }
 
-        public void testStop()
-        {
-            speed = 0;
-        }
     }
 }
