@@ -20,6 +20,12 @@ namespace Project
 
         //player movement speed
         private float speed = 1;
+        private float velocityX;
+        float gravity = -0.005f;
+        private float velocityY = 0.1f;
+        bool onGround = true;
+        private float terrheight = -4f;
+        private int jump_count = 0;
 
         public Player(LabGame game)
         {
@@ -58,6 +64,23 @@ namespace Project
             float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
+            
+            if (pos.Y < terrheight)
+            {
+                this.onGround = true;
+                pos.Y = terrheight;
+                velocityY = 0.1f;
+            }
+
+
+            //Debug.WriteLine(pos.Y);
+
+
+            if (this.onGround == false)
+            {
+                pos.Y += velocityY;
+                velocityY += gravity;
+            }
 
             // TASK 1: Determine velocity based on accelerometer reading
             pos.X += (float)game.accelerometerReading.AccelerationX;
@@ -83,8 +106,10 @@ namespace Project
 
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
         {
-            fire();
+            //fire();
             //testStop();
+            onGround = false;
+
         }
 
         public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
