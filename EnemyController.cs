@@ -26,7 +26,7 @@ namespace Project
         private bool stepRight;
 
         // Constructor.
-        public EnemyController(LabGame game)
+        public EnemyController(ProjectGame game)
         {
             this.game = game;
             nextWave();
@@ -57,17 +57,6 @@ namespace Project
         public override void Update(GameTime gameTime)
         {
             float timechange = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            // Move the enemies along with the player and camera
-            foreach (var obj in game.gameObjects)
-            {
-                if (obj.type == GameObjectType.Enemy)
-                {
-                    Enemy enemy = (Enemy)obj;
-                    enemy.pos.Z += enemy.Speed * timechange;
-                }
-            }
-
 
             // Move the enemies a step once the step timer has run out and reset step timer.
             // TASK 3: Moves according to game difficulty.  N.B.  This is a simple way of achieving this, you may prefer to impletement

@@ -33,11 +33,11 @@ namespace Project
     using SharpDX.Toolkit.Graphics;
     using SharpDX.Toolkit.Input;
 
-    public class LabGame : Game
+    public class ProjectGame : Game
     {
         private GraphicsDeviceManager graphicsDeviceManager;
         public List<GameObject> gameObjects;
-        public List<Platforms> platforms_list;
+        public List<Platform> platforms_list;
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
         public KeyboardManager keyboardManager;
@@ -62,15 +62,20 @@ namespace Project
         // Random number generator
         public Random random;
 
+        // Lower boundary used to end the game
         public float lower_bound = -60.0f;
-        public float left_bound = -20.0f;
-        public float right_bound = 120.0f;
+
+        // Game gravity
+        public float gravity = -100.0f;
+
+        // Player initial position
+        public float init_pos;
 
         public bool started = false;
         /// <summary>
-        /// Initializes a new instance of the <see cref="LabGame" /> class.
+        /// Initializes a new instance of the <see cref="ProjectGame" /> class.
         /// </summary>
-        public LabGame(MainPage mainPage)
+        public ProjectGame(MainPage mainPage)
         {
             // Creates a graphics manager. This is mandatory.
             graphicsDeviceManager = new GraphicsDeviceManager(this);
@@ -101,33 +106,34 @@ namespace Project
         {
             // Initialise game object containers.
             gameObjects = new List<GameObject>();
-            platforms_list = new List<Platforms>();
+            platforms_list = new List<Platform>();
             addedGameObjects = new Stack<GameObject>();
             removedGameObjects = new Stack<GameObject>();
 
             // Create game objects.
-            player = new Player(this);
-            gameObjects.Add(player);
-            gameObjects.Add(new EnemyController(this));
-
-            //Number of platforms to render on screen
-            platforms_list.Add(new Platforms(this));
-            platforms_list.Add(new Platforms(this));
-            platforms_list.Add(new Platforms(this));
-            platforms_list.Add(new Platforms(this));
-            platforms_list.Add(new Platforms(this));
-            platforms_list.Add(new Platforms(this));
-
-
             
-            // Create an input layout from the vertices
 
+            gameObjects.Add(new EnemyController(this));
+            // Create the first platform and get the height
+            Platform first_platform = new Platform(this);
+            int level = first_platform.platform[2, 0];
+            init_pos = first_platform.Levels[level];
+
+            player = new Player(this);
+            //Number of platforms to render on screen at any time
+            platforms_list.Add(first_platform);            
+            platforms_list.Add(new Platform(this));
+            platforms_list.Add(new Platform(this));
+            platforms_list.Add(new Platform(this));
+            platforms_list.Add(new Platform(this));
+            platforms_list.Add(new Platform(this));
+         
             base.LoadContent();
         }
 
         protected override void Initialize()
         {
-            Window.Title = "Lab 4";
+            Window.Title = "Project 2";
 
             camera = new Camera(this);
 
@@ -144,8 +150,9 @@ namespace Project
 
                 // pass gameTime to let camera move along
                 camera.Update(gameTime, player.pos);
-
+                
                 accelerometerReading = input.accelerometer.GetCurrentReading();
+                
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Update(gameTime);
@@ -154,15 +161,15 @@ namespace Project
                 for (int i = 0; i < platforms_list.Count; i++)
                 {
                     platforms_list[i].Update(gameTime);
-                    platforms_list[i].Standing_Platform(player.pos);
+                    platforms_list[i].Update_player_platforms(player.pos);
                     
                 }
-
+                player.Update(gameTime);
                 // Update score board on the game page
                 //mainPage.UpdateScore(score);
 
                 // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, Platforms.standing_platform.z_position_start, Platforms.standing_platform.z_position_end);
+                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, difficulty, Platform.standing_platform.z_position_end);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))
                 {
@@ -182,7 +189,7 @@ namespace Project
             {
                 // Clears the screen with the Color.CornflowerBlue
                 GraphicsDevice.Clear(Color.Black);
-
+                player.Draw(gameTime);
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Draw(gameTime);
@@ -244,13 +251,11 @@ namespace Project
             {
                 obj.Tapped(sender, args);
             }
+            player.Tapped(sender, args);
         }
 
         public void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
         {
-            //float dScale = args.Delta.Scale;
-            //Vector3 tempV3 = new Vector3(camera.Position.X* dScale, camera.Position.Y * dScale, camera.Position.Z * dScale);
-            //camera.Position = tempV3;
             
             // Update camera position for all game objects
             foreach (var obj in gameObjects)

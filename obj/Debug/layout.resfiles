@@ -10,10 +10,10 @@ MainPage.xbf
 Project.WinRTXaml.xr.xml
 Content\enemy projectile.png
 Content\enemy.png
+Content\Platform_textures.jpg
 Content\player projectile.png
-Content\player.png
-Content\water.jpg
-Content\Car.tkb
+Content\Enemy.tkb
 Content\Gouraud.tkb
 Content\Phong.tkb
-Content\Water.tkb
+Content\Platform.tkb
+Content\Spaceship.tkb

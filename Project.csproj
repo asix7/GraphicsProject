@@ -44,7 +44,6 @@
     <Compile Include="Camera.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyController.cs" />
-    <Compile Include="FPSCamera.cs" />
     <Compile Include="GameInput.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -59,7 +58,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LabGame.cs" />
+    <Compile Include="ProjectGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameObject.cs" />
   </ItemGroup>
@@ -79,8 +78,8 @@
     <Content Include="Content\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <ToolkitFxc Include="Content\Water.fx" />
-    <Content Include="Content\water.jpg" />
+    <ToolkitFxc Include="Content\Platform.fx" />
+    <Content Include="Content\Platform_textures.jpg" />
     <ToolkitFxc Include="Content\Gouraud.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>
@@ -88,9 +87,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>
     <Content Include="Content\player projectile.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -161,9 +157,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ToolkitModel Include="Content\Car.x">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </ToolkitModel>
+    <ToolkitModel Include="Content\Spaceship.fbx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ToolkitModel Include="Content\Enemy.fbx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

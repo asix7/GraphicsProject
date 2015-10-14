@@ -22,7 +22,7 @@ namespace Project
         public Texture2D Texture;
         public float collisionRadius;
         
-        public MyModel(LabGame game, VertexPositionColor[] shapeArray, String textureName, float collisionRadius)
+        public MyModel(ProjectGame game, VertexPositionColor[] shapeArray, String textureName, float collisionRadius)
         {
             this.vertices = Buffer.Vertex.New(game.GraphicsDevice, shapeArray);
             this.inputLayout = VertexInputLayout.New<VertexPositionColor>(0);
@@ -31,7 +31,7 @@ namespace Project
             this.collisionRadius = collisionRadius;
         }
 
-        public MyModel(LabGame game, VertexPositionTexture[] shapeArray, String textureName, float collisionRadius)
+        public MyModel(ProjectGame game, VertexPositionTexture[] shapeArray, String textureName, float collisionRadius)
         {
             this.vertices = Buffer.Vertex.New(game.GraphicsDevice, shapeArray);
             this.inputLayout = VertexInputLayout.New<VertexPositionTexture>(0);

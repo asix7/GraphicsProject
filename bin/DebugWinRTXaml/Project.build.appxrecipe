@@ -86,14 +86,11 @@
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player projectile.png">
       <PackagePath>Content\player projectile.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player.png">
-      <PackagePath>Content\player.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\Platform_textures.jpg">
+      <PackagePath>Content\Platform_textures.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\water.jpg">
-      <PackagePath>Content\water.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Water.tkb">
-      <PackagePath>Content\Water.tkb</PackagePath>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Platform.tkb">
+      <PackagePath>Content\Platform.tkb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
       <PackagePath>Content\Gouraud.tkb</PackagePath>
@@ -101,8 +98,11 @@
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Car.tkb">
-      <PackagePath>Content\Car.tkb</PackagePath>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Spaceship.tkb">
+      <PackagePath>Content\Spaceship.tkb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Enemy.tkb">
+      <PackagePath>Content\Enemy.tkb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
       <PackagePath>App.xbf</PackagePath>

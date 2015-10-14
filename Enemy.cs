@@ -13,24 +13,18 @@ namespace Project
     class Enemy : GameObject
     {
         private float projectileSpeed = 10;
-
+        private float distance_from_screen = 200.0f;
         float fireTimer;
         float fireWaitMin = 2000;
         float fireWaitMax = 20000;
-        float speed = 100f;
 
-        public float Speed
-        {
-            get { return speed; }
-            set { speed = value; }
-        }
-
-        public Enemy(LabGame game, Vector3 pos)
+        public Enemy(ProjectGame game, Vector3 pos)
         {
             this.game = game;
             type = GameObjectType.Enemy;
             myModel = game.assets.GetModel("ship", CreateEnemyModel);
             this.pos = pos;
+            this.pos.Z = game.camera.Position.Z + distance_from_screen;
             setFireTimer();
             GetParamsFromModel();
         }
@@ -56,10 +50,10 @@ namespace Project
             fireTimer -= gameTime.ElapsedGameTime.Milliseconds * game.difficulty;
             if (fireTimer < 0)
             {
-                fire();
+                
                 setFireTimer();
             }
-
+            pos.Z = game.camera.Position.Z + distance_from_screen;
             // Set view of enemy
             basicEffect.View = game.camera.View;
             basicEffect.World = Matrix.Translation(pos);

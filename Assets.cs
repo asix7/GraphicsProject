@@ -10,9 +10,9 @@ namespace Project
     using SharpDX.Toolkit.Graphics;
     public class Assets
     {
-        LabGame game;
+        ProjectGame game;
 
-        public Assets(LabGame game)
+        public Assets(ProjectGame game)
         {
             this.game = game;
         }

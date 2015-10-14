@@ -14,14 +14,16 @@ namespace Project
         public Game game;
 
         // Attributes
-        private Vector3 thirdPersonRef;
-        public Vector3 cameraPos;
+        private Vector3 cameraPos;
         private Vector3 cameraTarget;
         private Vector3 cameraUp;
-        public float cameraSpeed = 1f;
+        private float z_distance_from_player = 150.0f;
+        private float z_distance_from_target = 1000.0f;
+        private float y_camera_position = 50.0f;
+        private float platform_midpoint = 50.0f;
+
 
         private Vector3 cameraRot;
-        public Vector3 viewVector;
 
         // Properties
         public Vector3 Position
@@ -30,7 +32,6 @@ namespace Project
             set
             {
                 cameraPos = value;
-                UpdateTarget();
             }
         }
         public Vector3 Rotation
@@ -39,7 +40,6 @@ namespace Project
             set
             {
                 cameraRot = value;
-                UpdateTarget();
             }
         }
 
@@ -51,12 +51,12 @@ namespace Project
         {
             get { return cameraUp; }
         }
-        // Ensures that all objects are being rendered from a consistent viewpoint
-        public Camera(LabGame game)
+
+        // Set the intil values for the camera
+        public Camera(ProjectGame game)
         {
-            thirdPersonRef = new Vector3(0, 0, -15);
-            cameraPos = new Vector3(50, 50, -15);
-            cameraTarget = new Vector3(50, 0, 1000);
+            cameraPos = new Vector3(0, y_camera_position, 0);
+            cameraTarget = new Vector3(platform_midpoint, 0, 0);
             cameraUp = Vector3.UnitY;
 
             View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
@@ -67,81 +67,16 @@ namespace Project
         // If the screen is resized, the projection matrix will change
         public void Update(GameTime gameTime, Vector3 playerPos)
         {
-            Vector3 moveVector = Vector3.Zero;
 
-            float time = (float)gameTime.TotalGameTime.TotalSeconds;
-            float timechange = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            //Position = playerPos;
-
-
-            cameraPos.Z = playerPos.Z - 200;
-            cameraTarget.Z = playerPos.Z + 1000;
+            // Camera is updated according to the current player position
+            cameraPos.Z = playerPos.Z - z_distance_from_player;
+            cameraTarget.Z = playerPos.Z + z_distance_from_target;
             cameraPos.X = playerPos.X;
 
-
+            // Change the projection and view
             Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
             View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
-            viewVector = cameraTarget - cameraPos;
-
-
         }
-
-        //Set camera's position and rotation
-        private void MoveTo(Vector3 pos, Vector3 rot)
-        {
-
-            Position = pos;
-            Rotation = rot;
-        }
-
-        // Update target vector
-        private void UpdateTarget()
-        {
-            // Build a rotation matrix
-            Matrix rotationMatrix = Matrix.RotationX(cameraRot.X) * Matrix.RotationY(cameraRot.Y);
-
-            // Build target offset vector
-            Vector3 targetOffset = Vector3.TransformCoordinate(Vector3.UnitZ, rotationMatrix);
-
-            // Update our camera's  look at vector
-            cameraTarget = cameraPos + targetOffset;
-
-            cameraUp = Vector3.TransformCoordinate(Vector3.UnitY, rotationMatrix);
-        }
-
-        // Update camera position
-        private void UpdateCameraPosition(Vector3 playerPos)
-        {
-            // Build a rotation matrix
-            Matrix rotationMatrix = Matrix.RotationX(cameraRot.X) * Matrix.RotationY(cameraRot.Y);
-
-            // Build transform reference
-            Vector3 transformRef = Vector3.TransformCoordinate(thirdPersonRef, rotationMatrix);
-
-            Position = transformRef + playerPos;
-        }
-
-        // Simulates movement, can be use to test collider
-        private Vector3 TestMove(Vector3 amount)
-        {
-            // Build a rotation matrix
-            Matrix rotate = Matrix.RotationX(cameraRot.X) * Matrix.RotationY(cameraRot.Y) * Matrix.RotationZ(cameraRot.Z);
-
-            // Create a movement vector
-            Vector3 movement = new Vector3(amount.X, amount.Y, amount.Z);
-            movement = Vector3.TransformCoordinate(movement, rotate);
-
-
-            return cameraPos + movement;
-        }
-
-        // Move the camera
-        private void MoveCamera(Vector3 scale)
-        {
-            MoveTo(TestMove(scale), Rotation);
-        }
-
 
     }
 }

@@ -19,7 +19,7 @@ namespace Project
     abstract public class GameObject
     {
         public MyModel myModel;
-        public LabGame game;
+        public ProjectGame game;
         public GameObjectType type = GameObjectType.None;
         public Vector3 pos;
         public BasicEffect basicEffect;

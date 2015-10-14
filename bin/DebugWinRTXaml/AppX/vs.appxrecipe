@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-14T04:15:06.705</Modified>
+      <Modified>2015-10-14T17:32:16.225</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-14T04:12:57.646</Modified>
+      <Modified>2015-10-14T17:31:12.184</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
@@ -116,17 +116,13 @@
       <PackagePath>Content\player projectile.png</PackagePath>
       <Modified>2015-10-13T03:22:56.196</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player.png">
-      <PackagePath>Content\player.png</PackagePath>
-      <Modified>2015-10-13T03:22:56.197</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\water.jpg">
-      <PackagePath>Content\water.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\Platform_textures.jpg">
+      <PackagePath>Content\Platform_textures.jpg</PackagePath>
       <Modified>2015-10-13T04:10:31.919</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Water.tkb">
-      <PackagePath>Content\Water.tkb</PackagePath>
-      <Modified>2015-10-13T04:10:54.057</Modified>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Platform.tkb">
+      <PackagePath>Content\Platform.tkb</PackagePath>
+      <Modified>2015-10-14T12:39:17.254</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
       <PackagePath>Content\Gouraud.tkb</PackagePath>
@@ -136,9 +132,13 @@
       <PackagePath>Content\Phong.tkb</PackagePath>
       <Modified>2015-10-13T03:54:22.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Car.tkb">
-      <PackagePath>Content\Car.tkb</PackagePath>
-      <Modified>2015-10-13T03:54:22.911</Modified>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Spaceship.tkb">
+      <PackagePath>Content\Spaceship.tkb</PackagePath>
+      <Modified>2015-10-14T17:13:47.381</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Enemy.tkb">
+      <PackagePath>Content\Enemy.tkb</PackagePath>
+      <Modified>2015-10-14T17:24:08.067</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -166,7 +166,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-14T04:14:03.515</Modified>
+      <Modified>2015-10-14T17:31:12.384</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -277,11 +277,9 @@ C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\
 C:\Users\jchee\Dropbox\COMP30019 Graphics\Labs\Project2Test\Project 2 Framework\obj\Debug\ProjectArchitectures.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Car.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\enemy projectile.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\enemy.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\player projectile.png
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\player.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
@@ -362,4 +360,6 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Water.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Platform.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb

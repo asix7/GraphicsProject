@@ -18,7 +18,7 @@ namespace Project
         private float squareHitRadius;
 
         // Constructor.
-        public Projectile(LabGame game, MyModel myModel, Vector3 pos, Vector3 vel, GameObjectType targetType)
+        public Projectile(ProjectGame game, MyModel myModel, Vector3 pos, Vector3 vel, GameObjectType targetType)
         {
             this.game = game;
             this.myModel = myModel;

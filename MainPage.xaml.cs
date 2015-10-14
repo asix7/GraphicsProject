@@ -29,12 +29,12 @@ namespace Project
     /// </summary>
     public sealed partial class MainPage
     {
-        public readonly LabGame game;
+        public readonly ProjectGame game;
         public MainMenu mainMenu;
         public MainPage()
         {
             InitializeComponent();
-            game = new LabGame(this);
+            game = new ProjectGame(this);
             game.Run(this);
             mainMenu = new MainMenu(this);
             this.Children.Add(mainMenu);
