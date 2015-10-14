@@ -68,6 +68,12 @@ namespace Project
             if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
             
             terrheight = get_TerrainH();
+
+            if (pos.Y < (terrheight - 1))
+            {
+                game.Exit();
+            }
+
             if (pos.Y < terrheight)
             {
                 this.onGround = true;

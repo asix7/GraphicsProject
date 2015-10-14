@@ -17,7 +17,7 @@ namespace Project
         float fireTimer;
         float fireWaitMin = 2000;
         float fireWaitMax = 20000;
-        float speed = 30f;
+        float speed = 100f;
 
         public float Speed
         {

@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-13T17:47:10.370</Modified>
+      <Modified>2015-10-14T04:15:06.705</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-13T17:47:10.159</Modified>
+      <Modified>2015-10-14T04:12:57.646</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
@@ -166,7 +166,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-13T17:47:10.334</Modified>
+      <Modified>2015-10-14T04:14:03.515</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
