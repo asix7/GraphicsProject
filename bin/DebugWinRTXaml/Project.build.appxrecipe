@@ -95,12 +95,6 @@
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Enemy.tkb">
       <PackagePath>Content\Enemy.tkb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Metal.tkb">
-      <PackagePath>Content\Metal.tkb</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\new.tkb">
-      <PackagePath>Content\new.tkb</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Platform_Textures.tkb">
       <PackagePath>Content\Platform_Textures.tkb</PackagePath>
     </AppxPackagedFile>

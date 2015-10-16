@@ -2,8 +2,6 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\G
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Metal.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\new.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\enemy projectile.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\player projectile.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf
@@ -87,3 +85,11 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt.int
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\ProjectArchitectures.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate

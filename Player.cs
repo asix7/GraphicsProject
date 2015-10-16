@@ -17,16 +17,24 @@ namespace Project
     {
         private Model player_model;
         public bool alive = true;
-        private float projectileSpeed = 20;
-
+        
         //player movement speed
         private float speed = 0.0f;
         private float base_speed = 100.0f;
         private float additional_speed = 20.0f;
+        private float bonus_speed = 20.0f;
         private float max_speed = -1;
         private float acceleration = 20.0f;
+
+        private float projectileSpeed = 20;
+
+        // velocity that affects player position in Y
         private float velocityY = 0;
-        private float initial_jump_speedY = 80.0f;
+
+        // player jump
+        private float jump_velocity;
+        private float base_jump_velocity = 80.0f;
+        private float bonus_jump_velocity = 15.0f;
 
         //Standing Platfom information
         bool onGround = true;
@@ -94,12 +102,10 @@ namespace Project
 
                 Player_movement(deltatime);
 
-                // Set view of the player same as camera to view...
-                basicEffect.View = game.camera.View;
             }
         }
 
-        public void Player_movement(float deltatime)
+        void Player_movement(float deltatime)
         {
             terrheight = get_platform_height(Platform.standing_platform);
             platform_base = Platform.standing_platform.platform_base;
@@ -135,14 +141,19 @@ namespace Project
                 pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
 
                 // move player forward depending of its speed
+                if (onGround)
+                {
+                    platform_bonus(Platform.standing_platform);
+                }
+                
                 if (speed < max_speed)
                 {
                     speed += acceleration * deltatime;
                 }
                 else if (speed > max_speed)
                 {
-                    speed = max_speed;
-                }
+                    speed -= acceleration * deltatime;
+                }                
 
                 pos.Z += speed * deltatime;
 
@@ -150,25 +161,62 @@ namespace Project
             }
         }
 
+        void platform_bonus(Platform target_platform)
+        {
+            // Get the correct index of the tile to fetch
+            int index = (int)(pos.X / target_platform.tile_width);
+            int tile_type = target_platform.platform[index, 1];
+
+            // Go faster in Blue plaforms
+            if (tile_type == 0)
+            {
+                max_speed = base_speed + (additional_speed * game.difficulty) + bonus_speed;
+            } 
+            else
+            {
+                max_speed = base_speed + (additional_speed * game.difficulty);
+            }
+
+            // Jump higher in red platforms
+            if (tile_type == 1)
+            {
+                jump_velocity = base_jump_velocity + bonus_jump_velocity;
+            }
+            else 
+            {
+                jump_velocity = base_jump_velocity;
+            }
+
+            // Other bonus in grey platforms
+            if (tile_type == 2)
+            {
+                // BONUS NUMBER 3
+            }
+            else
+            {
+                // NORMAL STATUS
+            }
+            
+        }
+
 
         // Optain the current lecture of the platform height under the player
         public float get_platform_height(Platform target_platform)
         {
             float height;
-            Platform platform = target_platform;
-
+            
             // Get the correct index of the tile to fetch
-            int index = (int)(pos.X / platform.tile_width);
+            int index = (int)(pos.X / target_platform.tile_width);
 
             // Detect if the current position is outside of the platform
-            if ((index > platform.platform.GetLength(0) - 1) || index < 0 || pos.X < 0)
+            if ((index > target_platform.platform.GetLength(0) - 1) || index < 0 || pos.X < 0)
             {
                 height = game.lower_bound;
             }
 
             else
             {
-                int level = platform.platform[index, 0];
+                int level = target_platform.platform[index, 0];
                 // Detect if the current tile is empty
                 if (level < 0)
                 {
@@ -177,7 +225,7 @@ namespace Project
                 // Get the correct height of the tile
                 else
                 {
-                    height = platform.Levels[level];
+                    height = target_platform.Levels[level];
                 }
 
             }
@@ -203,7 +251,7 @@ namespace Project
         {
             if (onGround)
             {
-                velocityY = initial_jump_speedY;
+                velocityY = jump_velocity;
                 onGround = false;
             }
         }

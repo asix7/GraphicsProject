@@ -178,23 +178,11 @@ namespace Project
             {
                 if (platform[x, 0] != -1)
                 {
-                    lower = platform_base;
-                    upper = Levels[platform[x, 0]];
-
                     Vector2[] texture_coords = getTexure(platform[x, 1]);
                     Vector2 texture_coord1 = texture_coords[0];
                     Vector2 texture_coord2 = texture_coords[1];
                     Vector2 texture_coord3 = texture_coords[2];
                     Vector2 texture_coord4 = texture_coords[3];
-
-                    // Create Top Surface
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord1));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position + tile_depth), left_top_back_normal, texture_coord2));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position + tile_depth), right_top_back_normal, texture_coord3));
-
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal,texture_coord1));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position + tile_depth), right_top_back_normal, texture_coord3));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord4));
 
                     // Create Front Wall if there is no tile behind it
                     if (previous_platform[x, 0] < platform[x, 0])
@@ -209,7 +197,6 @@ namespace Project
                             lower = Levels[previous_platform[x, 0]];
                         }
 
-
                         platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position), left_bottom_front_normal, texture_coord1));
                         platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord2));
                         platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord3));
@@ -219,6 +206,18 @@ namespace Project
                         platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord4));
 
                     }
+
+                    lower = platform_base;
+                    upper = Levels[platform[x, 0]];
+
+                    // Create Top Surface
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position + tile_depth), left_top_back_normal, texture_coord2));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position + tile_depth), right_top_back_normal, texture_coord3));
+
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal,texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position + tile_depth), right_top_back_normal, texture_coord3));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord4));
 
                     // Create Left Wall if there are no adjacent tiles
                     if (x == 0 || platform[x - 1, 0] < 0)
