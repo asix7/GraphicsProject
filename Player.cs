@@ -16,20 +16,26 @@ namespace Project
     class Player : GameObject
     {
         private Model player_model;
+        public bool alive = true;
         private float projectileSpeed = 20;
 
         //player movement speed
-        private float speed = 100.0f;
+        private float speed = 0.0f;
         private float base_speed = 100.0f;
         private float additional_speed = 20.0f;
+        private float max_speed = -1;
+        private float acceleration = 20.0f;
         private float velocityY = 0;
         private float initial_jump_speedY = 80.0f;
 
+        //Standing Platfom information
         bool onGround = true;
         private float terrheight;
+        private float platform_base;
 
         // Spaceship floats a little bit over the surface
         private float distance_from_floor = 2.0f;
+        private float correction_distance = 2.0f;
 
         // Points used for collisions
         private float front_point;
@@ -41,21 +47,18 @@ namespace Project
         private float right_front_point;
 
         public static float current_index = 0;
+        private Matrix World;
 
         public Player(ProjectGame game)
         {
             this.game = game;
+            alive = true;
             type = GameObjectType.Player;
             player_model = game.Content.Load<Model>("Spaceship");
-            basicEffect = new BasicEffect(game.GraphicsDevice)
-            {
-                View = game.camera.View,
-                Projection = game.camera.Projection,
-                World = Matrix.Identity,
-            };
+            basicEffect = new BasicEffect(game.GraphicsDevice);
+            World = Matrix.Identity;
             BasicEffect.EnableDefaultLighting(player_model, true);
-            pos = new Vector3(50, game.init_pos, 0);  
-
+            pos = new Vector3(50, game.init_pos, 0);
         }
 
         // Method to create projectile texture to give to newly created projectiles.
@@ -78,53 +81,73 @@ namespace Project
         // Frame update.
         public override void Update(GameTime gameTime)
         {
-            speed = base_speed + (additional_speed * game.difficulty);
-            OutofBounds();
-            float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (max_speed == -1)
+            {
+                max_speed = base_speed + (additional_speed * game.difficulty);
+            }
+            if (alive)
+            {
+                OutofBounds();
+                float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
-            
-            Player_movement(deltatime);
+                if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
 
-            // Set view of the player same as camera to view...
-            basicEffect.View = game.camera.View;
+                Player_movement(deltatime);
+
+                // Set view of the player same as camera to view...
+                basicEffect.View = game.camera.View;
+            }
         }
 
         public void Player_movement(float deltatime)
         {
             terrheight = get_platform_height(Platform.standing_platform);
+            platform_base = Platform.standing_platform.platform_base;
 
-            if (pos.Y < terrheight)
+            if ((pos.Y < terrheight - correction_distance) && (pos.Y > platform_base))
             {
-                game.Exit();
+                alive = false;
             }
-
-            //Detect when the player touches the ground
-            if (pos.Y < terrheight + distance_from_floor)
+            else
             {
-                this.onGround = true;
-                pos.Y = terrheight + distance_from_floor;
+
+                //Detect when the player touches the ground
+                if ((pos.Y < terrheight + distance_from_floor) && (pos.Y > platform_base))
+                {
+                    this.onGround = true;
+                    pos.Y = terrheight + distance_from_floor;
+                }
+
+                // Falls from platform
+                if (pos.Y > terrheight + distance_from_floor)
+                {
+                    this.onGround = false;
+                }
+
+                // If the player is not on the ground it falls
+                if (!onGround)
+                {
+                    pos.Y += velocityY * deltatime;
+                    velocityY += game.gravity * deltatime;
+                }
+
+                // Determine the X position based on accelerometer reading
+                pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
+
+                // move player forward depending of its speed
+                if (speed < max_speed)
+                {
+                    speed += acceleration * deltatime;
+                }
+                else if (speed > max_speed)
+                {
+                    speed = max_speed;
+                }
+
+                pos.Z += speed * deltatime;
+
+                World = Matrix.Translation(Vector3.Zero) * Matrix.RotationY((float)-Math.PI) * Matrix.Translation(pos);
             }
-
-            if (pos.Y > terrheight + distance_from_floor)
-            {
-                this.onGround = false;
-            }
-
-            // If the player is not on the ground it falls
-            if (!onGround)
-            {
-                pos.Y += velocityY * deltatime;
-                velocityY += game.gravity * deltatime;
-            }
-
-            // Determine the X position based on accelerometer reading
-            pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
-
-            // move player forward depending of its speed
-            pos.Z += speed * deltatime;
-
-            basicEffect.World = Matrix.Translation(pos);
         }
 
 
@@ -136,7 +159,7 @@ namespace Project
 
             // Get the correct index of the tile to fetch
             int index = (int)(pos.X / platform.tile_width);
-            
+
             // Detect if the current position is outside of the platform
             if ((index > platform.platform.GetLength(0) - 1) || index < 0 || pos.X < 0)
             {
@@ -156,7 +179,7 @@ namespace Project
                 {
                     height = platform.Levels[level];
                 }
-                
+
             }
             return height;
         }
@@ -164,16 +187,16 @@ namespace Project
         // React to getting hit by an enemy bullet.
         public void Hit()
         {
-            game.Exit();
+            alive = false;
         }
 
         // End the game if the player falls out of bounds
         public void OutofBounds()
         {
-            if (pos.Y < game.lower_bound)
+            if (pos.Y - distance_from_floor <= game.lower_bound)
             {
-                game.Exit();
-            }            
+                alive = false;
+            }
         }
 
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
@@ -186,7 +209,7 @@ namespace Project
         }
         public override void Draw(GameTime gametime)
         {
-            player_model.Draw(game.GraphicsDevice, basicEffect.World ,game.camera.View, game.camera.Projection);
+            player_model.Draw(game.GraphicsDevice, World, game.camera.View, game.camera.Projection);
         }
 
         public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)

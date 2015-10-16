@@ -32,20 +32,23 @@ float4 lightPntCol = float4(1.0f, 1.0f, 1.0f, 1.0f);
 float4x4 worldInvTrp;
 //
 
+texture2D ModelTexture;
+SamplerState SampleType;
+
 struct VS_IN
 {
 	float4 pos : SV_POSITION;
 	float4 nrm : NORMAL;
-	float4 col : COLOR;
+	float2 tex : TEXCOORD0;
 // Other vertex properties, e.g. texture co-ords, surface Kd, Ks, etc
 };
 
 struct PS_IN
 {
 	float4 pos : SV_POSITION; //Position in camera co-ords
-	float4 col : COLOR;
-	float4 wpos : TEXCOORD0; //Position in world co-ords
-	float3 wnrm : TEXCOORD1; //Normal in world co-ords 
+	float2 tex : TEXCOORD0;
+	float4 wpos : TEXCOORD1; //Position in world co-ords
+	float3 wnrm : TEXCOORD2; //Normal in world co-ords 
 };
 
 
@@ -65,7 +68,7 @@ PS_IN VS( VS_IN input )
     output.pos = mul(viewPos, Projection);
 
 	// Just pass along the colour at the vertex
-	output.col = input.col;
+	output.tex = input.tex;
 
 	return output;
 }
@@ -75,16 +78,18 @@ float4 PS( PS_IN input ) : SV_Target
 	// Our interpolated normal might not be of length 1
 	float3 interpNormal = normalize(input.wnrm);
 
+	float4 textureColor = ModelTexture.Sample(SampleType, input.tex);
+
 	// Calculate ambient RGB intensities
 	float Ka = 1;
-	float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
+	float3 amb = textureColor.rgb*lightAmbCol.rgb*Ka;
 
 	// Calculate diffuse RBG reflections
 	float fAtt = 1;
 	float Kd = 1;
 	float3 L = normalize(lightPntPos.xyz - input.wpos.xyz);
 	float LdotN = saturate(dot(L,interpNormal.xyz));
-	float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*LdotN;
+	float3 dif = fAtt*lightPntCol.rgb*Kd*textureColor.rgb*LdotN;
 
 	// Calculate specular reflections
 	float Ks = 1;
@@ -97,7 +102,7 @@ float4 PS( PS_IN input ) : SV_Target
 	// Combine reflection components
 	float4 returnCol = float4(0.0f,0.0f,0.0f,0.0f);
 	returnCol.rgb = amb.rgb+dif.rgb+spe.rgb;
-	returnCol.a = input.col.a;
+	returnCol.a = textureColor.rgb;
 
 	return returnCol;
 }
@@ -108,7 +113,7 @@ technique Lighting
 {
     pass Pass1
     {
-		Profile = 9.1;
+		Profile = 10;
         VertexShader = VS;
         PixelShader = PS;
     }

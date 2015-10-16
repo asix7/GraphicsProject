@@ -42,7 +42,8 @@ namespace Project
 
         public void GetParamsFromModel()
         {
-            if (myModel.modelType == ModelType.Colored) {
+            if (myModel.modelType == ModelType.Colored)
+            {
                 basicEffect = new BasicEffect(game.GraphicsDevice)
                 {
                     View = game.camera.View,
@@ -51,7 +52,8 @@ namespace Project
                     VertexColorEnabled = true
                 };
             }
-            else if (myModel.modelType == ModelType.Textured) {
+            else if (myModel.modelType == ModelType.Textured)
+            {
                 basicEffect = new BasicEffect(game.GraphicsDevice)
                 {
                     View = game.camera.View,

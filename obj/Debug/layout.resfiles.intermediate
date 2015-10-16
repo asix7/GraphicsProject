@@ -9,11 +9,11 @@ MainMenu.xbf
 MainPage.xbf
 Project.WinRTXaml.xr.xml
 Content\enemy projectile.png
-Content\enemy.png
-Content\Platform_textures.jpg
 Content\player projectile.png
 Content\Enemy.tkb
 Content\Gouraud.tkb
+Content\Metal.tkb
+Content\new.tkb
 Content\Phong.tkb
-Content\Platform.tkb
+Content\Platform_Textures.tkb
 Content\Spaceship.tkb

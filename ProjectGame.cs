@@ -18,6 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
 using SharpDX;
 using SharpDX.Toolkit;
 using System;
@@ -25,6 +26,10 @@ using System.Collections.Generic;
 using Windows.UI.Input;
 using Windows.UI.Core;
 using Windows.Devices.Sensors;
+
+using SharpDX.Direct3D;
+using SharpDX.Direct3D11;
+
 
 namespace Project
 {
@@ -36,21 +41,25 @@ namespace Project
     public class ProjectGame : Game
     {
         private GraphicsDeviceManager graphicsDeviceManager;
-        public List<GameObject> gameObjects;
-        public List<Platform> platforms_list;
-        private Stack<GameObject> addedGameObjects;
-        private Stack<GameObject> removedGameObjects;
         public KeyboardManager keyboardManager;
         public KeyboardState keyboardState;
         public MouseManager mouseManager;
         public MouseState mouseState;
-        private Player player;
         public AccelerometerReading accelerometerReading;
         public GameInput input;
-        public int score;
         public MainPage mainPage;
 
-        // TASK 4: Use this to represent difficulty
+        public List<GameObject> gameObjects;
+        public List<Platform> platforms_list;
+        private Stack<GameObject> addedGameObjects;
+        private Stack<GameObject> removedGameObjects;
+
+
+        private Player player;
+        public int score;
+
+
+        // Use this to represent difficulty
         public float difficulty;
 
         // Represents the camera's position and orientation
@@ -79,6 +88,8 @@ namespace Project
         {
             // Creates a graphics manager. This is mandatory.
             graphicsDeviceManager = new GraphicsDeviceManager(this);
+            graphicsDeviceManager.PreferredGraphicsProfile = new FeatureLevel[] { FeatureLevel.Level_10_0, };
+
 
             // Setup the relative directory to the executable directory
             // for loading contents with the ContentManager
@@ -111,7 +122,7 @@ namespace Project
             removedGameObjects = new Stack<GameObject>();
 
             // Create game objects.
-            
+
 
             gameObjects.Add(new EnemyController(this));
             // Create the first platform and get the height
@@ -120,14 +131,15 @@ namespace Project
             init_pos = first_platform.Levels[level];
 
             player = new Player(this);
+            gameObjects.Add(player);
             //Number of platforms to render on screen at any time
-            platforms_list.Add(first_platform);            
+            platforms_list.Add(first_platform);
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
-         
+
             base.LoadContent();
         }
 
@@ -145,14 +157,18 @@ namespace Project
 
             if (started)
             {
+                if (!player.alive)
+                {
+                    this.Exit();
+                }
                 keyboardState = keyboardManager.GetState();
                 flushAddedAndRemovedGameObjects();
 
                 // pass gameTime to let camera move along
                 camera.Update(gameTime, player.pos);
-                
+
                 accelerometerReading = input.accelerometer.GetCurrentReading();
-                
+
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Update(gameTime);
@@ -162,9 +178,8 @@ namespace Project
                 {
                     platforms_list[i].Update(gameTime);
                     platforms_list[i].Update_player_platforms(player.pos);
-                    
+
                 }
-                player.Update(gameTime);
                 // Update score board on the game page
                 //mainPage.UpdateScore(score);
 
@@ -188,8 +203,7 @@ namespace Project
             if (started)
             {
                 // Clears the screen with the Color.CornflowerBlue
-                GraphicsDevice.Clear(Color.Black);
-                player.Draw(gameTime);
+                GraphicsDevice.Clear(Color.CornflowerBlue);
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Draw(gameTime);
@@ -250,22 +264,12 @@ namespace Project
             foreach (var obj in gameObjects)
             {
                 obj.Tapped(sender, args);
-            }
-            player.Tapped(sender, args);
+            }            
         }
 
         public void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
         {
-            
-            // Update camera position for all game objects
-            foreach (var obj in gameObjects)
-            {
-                if (obj.basicEffect != null) {
-                    obj.basicEffect.View = camera.View;
-                    obj.basicEffect.Projection = camera.Projection;
-                }
-                obj.OnManipulationUpdated(sender, args);
-            }
+
         }
 
         public void OnManipulationCompleted(GestureRecognizer sender, ManipulationCompletedEventArgs args)

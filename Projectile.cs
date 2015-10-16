@@ -50,7 +50,7 @@ namespace Project
         {
             foreach (var obj in game.gameObjects)
             {
-                if (obj.type == targetType && ((((GameObject)obj).pos - pos).LengthSquared() <= 
+                if (obj.type == targetType && ((((GameObject)obj).pos - pos).LengthSquared() <=
                     Math.Pow(((GameObject)obj).myModel.collisionRadius + this.myModel.collisionRadius, 2)))
                 {
                     // Cast to object class and call Hit method.

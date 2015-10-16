@@ -10,13 +10,13 @@ namespace Project
 {
     using SharpDX.Toolkit.Graphics;
 
-    
+
     // Enemy Controller class.
     class EnemyController : GameObject
     {
         // Spacing and counts.
         private int rows = 0;
-        private int enemiesPerRow = 8;
+        private int enemiesPerRow = 1;
         private float colSpacing = 40f;
 
         // Timing and movement.
@@ -47,10 +47,10 @@ namespace Project
             float y = 80;
             float x = 50;
             for (int col = 0; col < enemiesPerRow; col++)
-                {
-                    game.Add(new Enemy(game, new Vector3(x, y, 0)));
-                    x += colSpacing;
-                }            
+            {
+                game.Add(new Enemy(game, new Vector3(x, y, 0)));
+                x += colSpacing;
+            }
         }
 
         // Frame update method.

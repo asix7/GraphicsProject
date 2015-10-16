@@ -17,7 +17,7 @@ namespace Project
         private Vector3 cameraPos;
         private Vector3 cameraTarget;
         private Vector3 cameraUp;
-        private float z_distance_from_player = 150.0f;
+        private float z_distance_from_player = 125.0f;
         private float z_distance_from_target = 1000.0f;
         private float y_camera_position = 50.0f;
         private float platform_midpoint = 50.0f;

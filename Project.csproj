@@ -75,11 +75,9 @@
     <Content Include="Content\enemy projectile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\enemy.png">
+    <ToolkitTexture Include="Content\Platform_Textures.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <ToolkitFxc Include="Content\Platform.fx" />
-    <Content Include="Content\Platform_textures.jpg" />
+    </ToolkitTexture>
     <ToolkitFxc Include="Content\Gouraud.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>
