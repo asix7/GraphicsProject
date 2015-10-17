@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>SURFACEPRO</Machine>
-    <WindowsUser>localtemp</WindowsUser>
+    <Machine>DESKTOP-9IE4VF6</Machine>
+    <WindowsUser>Jone</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>B0A6D86180D4060C449B4B1A0ED7DA1FFF96825769F22716194E407A9FB1FECB</RegisteredManifestChecksum>
+    <IntermediateOutputPath>E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>574D781559E5D32CD92558BB4D67FD176CC0391A7CAC7FA3BB19BD2425024A5F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3_1.0.0.0_neutral__2xgss9s9ewh1t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3_2xgss9s9ewh1t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BF719CB4-F851-4D0C-92F7-A997B8B0C7C3</RegisteredPackageID>
@@ -17,148 +19,148 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
+    <AppXManifest Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-16T14:39:00.683</Modified>
+      <Modified>2015-10-17T04:22:32.076</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-16T14:38:08.384</Modified>
+      <Modified>2015-10-17T04:22:31.980</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.352</Modified>
+      <Modified>2015-10-17T03:30:46.934</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct2D1.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Direct2D1.dll">
       <PackagePath>SharpDX.Direct2D1.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.445</Modified>
+      <Modified>2015-10-17T03:30:46.980</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Direct3D11.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Direct3D11.dll">
       <PackagePath>SharpDX.Direct3D11.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.623</Modified>
+      <Modified>2015-10-17T03:30:47.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.dll">
       <PackagePath>SharpDX.dll</PackagePath>
-      <Modified>2015-10-13T03:22:57.150</Modified>
+      <Modified>2015-10-17T03:30:47.355</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.DXGI.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.DXGI.dll">
       <PackagePath>SharpDX.DXGI.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.392</Modified>
+      <Modified>2015-10-17T03:30:46.949</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.MediaFoundation.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.MediaFoundation.dll">
       <PackagePath>SharpDX.MediaFoundation.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.766</Modified>
+      <Modified>2015-10-17T03:30:47.152</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Audio.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.Audio.dll">
       <PackagePath>SharpDX.Toolkit.Audio.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.878</Modified>
+      <Modified>2015-10-17T03:30:47.199</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.dll">
       <PackagePath>SharpDX.Toolkit.dll</PackagePath>
-      <Modified>2015-10-13T03:22:57.035</Modified>
+      <Modified>2015-10-17T03:30:47.309</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Game.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.Game.dll">
       <PackagePath>SharpDX.Toolkit.Game.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.906</Modified>
+      <Modified>2015-10-17T03:30:47.246</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Graphics.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.Graphics.dll">
       <PackagePath>SharpDX.Toolkit.Graphics.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.943</Modified>
+      <Modified>2015-10-17T03:30:47.262</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Input.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.Input.dll">
       <PackagePath>SharpDX.Toolkit.Input.dll</PackagePath>
-      <Modified>2015-10-13T03:22:56.988</Modified>
+      <Modified>2015-10-17T03:30:47.277</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.Toolkit.Yaml.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.Toolkit.Yaml.dll">
       <PackagePath>SharpDX.Toolkit.Yaml.dll</PackagePath>
-      <Modified>2015-10-13T03:22:57.011</Modified>
+      <Modified>2015-10-17T03:30:47.293</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XAudio2.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.XAudio2.dll">
       <PackagePath>SharpDX.XAudio2.dll</PackagePath>
-      <Modified>2015-10-13T03:22:57.071</Modified>
+      <Modified>2015-10-17T03:30:47.324</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\SharpDX\SharpDX.XInput.dll">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.XInput.dll">
       <PackagePath>SharpDX.XInput.dll</PackagePath>
-      <Modified>2015-10-13T03:22:57.108</Modified>
+      <Modified>2015-10-17T03:30:47.340</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\Logo.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-13T03:22:56.157</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-13T03:22:56.158</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-13T03:22:56.159</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-13T03:22:56.160</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\enemy projectile.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Content\enemy projectile.png">
       <PackagePath>Content\enemy projectile.png</PackagePath>
-      <Modified>2015-10-13T03:22:56.194</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\Content\player projectile.png">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\Content\player projectile.png">
       <PackagePath>Content\player projectile.png</PackagePath>
-      <Modified>2015-10-13T03:22:56.196</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Gouraud.tkb">
       <PackagePath>Content\Gouraud.tkb</PackagePath>
-      <Modified>2015-10-16T13:31:00.691</Modified>
+      <Modified>2015-10-17T03:40:19.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong.tkb">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
-      <Modified>2015-10-16T12:00:52.876</Modified>
+      <Modified>2015-10-17T03:40:19.166</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Spaceship.tkb">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Spaceship.tkb">
       <PackagePath>Content\Spaceship.tkb</PackagePath>
-      <Modified>2015-10-16T12:00:53.220</Modified>
+      <Modified>2015-10-17T03:40:19.385</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Enemy.tkb">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Enemy.tkb">
       <PackagePath>Content\Enemy.tkb</PackagePath>
-      <Modified>2015-10-16T12:00:53.279</Modified>
+      <Modified>2015-10-17T03:40:19.448</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Platform_Textures.tkb">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Platform_Textures.tkb">
       <PackagePath>Content\Platform_Textures.tkb</PackagePath>
-      <Modified>2015-10-16T12:09:43.973</Modified>
+      <Modified>2015-10-17T03:30:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
-      <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-10-16T12:00:55.044</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf">
-      <PackagePath>Common\StandardStyles.xbf</PackagePath>
-      <Modified>2015-10-16T12:00:55.046</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
-      <PackagePath>MainMenu.xbf</PackagePath>
-      <Modified>2015-10-16T12:00:55.047</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
-      <PackagePath>Instructions.xbf</PackagePath>
-      <Modified>2015-10-16T12:00:55.047</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-10-16T12:00:55.048</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
       <PackagePath>Project.WinRTXaml.xr.xml</PackagePath>
-      <Modified>2015-10-16T12:00:54.974</Modified>
+      <Modified>2015-10-17T03:40:20.979</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-10-17T03:40:21.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf">
+      <PackagePath>Common\StandardStyles.xbf</PackagePath>
+      <Modified>2015-10-17T03:40:21.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
+      <PackagePath>MainMenu.xbf</PackagePath>
+      <Modified>2015-10-17T03:40:21.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
+      <PackagePath>Instructions.xbf</PackagePath>
+      <Modified>2015-10-17T03:40:21.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-10-17T03:40:21.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-16T14:39:00.646</Modified>
+      <Modified>2015-10-17T04:22:32.062</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

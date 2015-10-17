@@ -49,7 +49,7 @@ namespace Project
             for (int col = 0; col < enemiesPerRow; col++)
             {
                 game.Add(new Enemy(game, new Vector3(x, y, 0)));
-                x += colSpacing;
+                x += x;
             }
         }
 

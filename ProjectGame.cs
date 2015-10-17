@@ -48,12 +48,13 @@ namespace Project
         public AccelerometerReading accelerometerReading;
         public GameInput input;
         public MainPage mainPage;
+        public SpriteBatch spriteBatch;
 
         public List<GameObject> gameObjects;
         public List<Platform> platforms_list;
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
-
+        
 
         private Player player;
         public int score;
@@ -88,8 +89,8 @@ namespace Project
         {
             // Creates a graphics manager. This is mandatory.
             graphicsDeviceManager = new GraphicsDeviceManager(this);
-            graphicsDeviceManager.PreferredGraphicsProfile = new FeatureLevel[] { FeatureLevel.Level_10_0, };
-
+            //graphicsDeviceManager.PreferredGraphicsProfile = new FeatureLevel[] { FeatureLevel.Level_10_0, };
+            graphicsDeviceManager.PreferredGraphicsProfile = new FeatureLevel[] { FeatureLevel.Level_10_1, };
 
             // Setup the relative directory to the executable directory
             // for loading contents with the ContentManager
@@ -139,6 +140,8 @@ namespace Project
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
             platforms_list.Add(new Platform(this));
+
+            spriteBatch = ToDisposeContent(new SpriteBatch(GraphicsDevice));
 
             base.LoadContent();
         }
@@ -276,5 +279,9 @@ namespace Project
         {
         }
 
+        public float RandomFloat(float min, float max)
+        {
+            return ((float)random.NextDouble() * (max - min)) + min;
+        }
     }
 }

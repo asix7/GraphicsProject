@@ -59,8 +59,8 @@ namespace Project
             cameraTarget = new Vector3(platform_midpoint, 0, 0);
             cameraUp = Vector3.UnitY;
 
-            View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
-            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
+            View = Matrix.LookAtRH(cameraPos, cameraTarget, cameraUp);
+            Projection = Matrix.PerspectiveFovRH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
             this.game = game;
         }
 
@@ -74,8 +74,8 @@ namespace Project
             cameraPos.X = playerPos.X;
 
             // Change the projection and view
-            Projection = Matrix.PerspectiveFovLH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
-            View = Matrix.LookAtLH(cameraPos, cameraTarget, cameraUp);
+            Projection = Matrix.PerspectiveFovRH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
+            View = Matrix.LookAtRH(cameraPos, cameraTarget, cameraUp);
         }
 
     }
