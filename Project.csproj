@@ -155,10 +155,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ToolkitModel Include="Content\Spaceship.fbx" />
+    <ToolkitModel Include="Content\Enemy.blend">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitModel>
   </ItemGroup>
   <ItemGroup>
-    <ToolkitModel Include="Content\Enemy.fbx" />
+    <ToolkitModel Include="Content\Spaceship.blend">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitModel>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

@@ -13,7 +13,7 @@ namespace Project
     using SharpDX.Toolkit.Graphics;
     using SharpDX.Toolkit.Input;
     // Player class.
-    class Player : GameObject
+    public class Player : GameObject
     {
         private Model player_model;
         public bool alive = true;
@@ -157,9 +157,9 @@ namespace Project
                     speed -= acceleration * deltatime;
                 }                
 
-                pos.Z += speed * deltatime;
+                pos.Z -= speed * deltatime;
 
-                World = Matrix.Translation(Vector3.Zero) * Matrix.RotationY((float)-Math.PI) * Matrix.Translation(pos);
+                World = Matrix.Translation(Vector3.Zero) * Matrix.RotationX(-(float) (Math.PI /2)) * Matrix.Translation(pos);
             }
         }
 

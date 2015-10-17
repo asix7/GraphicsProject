@@ -14,7 +14,7 @@ namespace Project
     {
         Model enemy_model;
         private float projectileSpeed = 10;
-        private float distance_from_screen = 120.0f;
+        private float distance_from_screen = -1500.0f;
         float fireTimer;
         float fireWaitMin = 2000;
         float fireWaitMax = 20000;
@@ -84,7 +84,7 @@ namespace Project
 
             // Set view of enemy
             basicEffect.View = game.camera.View;
-            basicEffect.World = Matrix.Translation(Vector3.Zero) * Matrix.Scaling(5) * Matrix.RotationY((float)(gameTime.TotalGameTime.TotalSeconds * 0.7)) * Matrix.RotationY((float)-Math.PI) * Matrix.Translation(pos);
+            basicEffect.World = Matrix.Translation(Vector3.Zero) * Matrix.Scaling(30) * Matrix.RotationX(-(float)(Math.PI/4.0f)) * Matrix.Translation(pos);
 
         }
 

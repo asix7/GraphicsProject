@@ -56,7 +56,7 @@ namespace Project
         public Camera(ProjectGame game)
         {
             cameraPos = new Vector3(0, y_camera_position, 0);
-            cameraTarget = new Vector3(platform_midpoint, 0, 0);
+            cameraTarget = new Vector3(-platform_midpoint, 0, 0);
             cameraUp = Vector3.UnitY;
 
             View = Matrix.LookAtRH(cameraPos, cameraTarget, cameraUp);
@@ -69,12 +69,12 @@ namespace Project
         {
 
             // Camera is updated according to the current player position
-            cameraPos.Z = playerPos.Z - z_distance_from_player;
-            cameraTarget.Z = playerPos.Z + z_distance_from_target;
+            cameraPos.Z = playerPos.Z + z_distance_from_player;
+            cameraTarget.Z = playerPos.Z - z_distance_from_target;
             cameraPos.X = playerPos.X;
 
             // Change the projection and view
-            Projection = Matrix.PerspectiveFovRH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 1000.0f);
+            Projection = Matrix.PerspectiveFovRH((float)Math.PI / 4.0f, (float)game.GraphicsDevice.BackBuffer.Width / game.GraphicsDevice.BackBuffer.Height, 0.1f, 2000.0f);
             View = Matrix.LookAtRH(cameraPos, cameraTarget, cameraUp);
         }
 

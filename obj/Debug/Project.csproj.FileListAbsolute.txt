@@ -85,14 +85,6 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt.int
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\ProjectArchitectures.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb

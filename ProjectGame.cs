@@ -51,12 +51,11 @@ namespace Project
         public SpriteBatch spriteBatch;
 
         public List<GameObject> gameObjects;
-        public List<Platform> platforms_list;
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
         
 
-        private Player player;
+        public Player player;
         public int score;
 
 
@@ -118,7 +117,6 @@ namespace Project
         {
             // Initialise game object containers.
             gameObjects = new List<GameObject>();
-            platforms_list = new List<Platform>();
             addedGameObjects = new Stack<GameObject>();
             removedGameObjects = new Stack<GameObject>();
 
@@ -134,12 +132,14 @@ namespace Project
             player = new Player(this);
             gameObjects.Add(player);
             //Number of platforms to render on screen at any time
-            platforms_list.Add(first_platform);
-            platforms_list.Add(new Platform(this));
-            platforms_list.Add(new Platform(this));
-            platforms_list.Add(new Platform(this));
-            platforms_list.Add(new Platform(this));
-            platforms_list.Add(new Platform(this));
+            gameObjects.Add(first_platform);
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
+            gameObjects.Add(new Platform(this));
 
             spriteBatch = ToDisposeContent(new SpriteBatch(GraphicsDevice));
 
@@ -177,12 +177,6 @@ namespace Project
                     gameObjects[i].Update(gameTime);
                 }
 
-                for (int i = 0; i < platforms_list.Count; i++)
-                {
-                    platforms_list[i].Update(gameTime);
-                    platforms_list[i].Update_player_platforms(player.pos);
-
-                }
                 // Update score board on the game page
                 //mainPage.UpdateScore(score);
 
@@ -206,15 +200,12 @@ namespace Project
             if (started)
             {
                 // Clears the screen with the Color.CornflowerBlue
-                GraphicsDevice.Clear(Color.CornflowerBlue);
+                GraphicsDevice.Clear(Color.GhostWhite);
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Draw(gameTime);
                 }
-                for (int i = 0; i < platforms_list.Count; i++)
-                {
-                    platforms_list[i].Draw(gameTime);
-                }
+
             }
             // Handle base.Draw
             base.Draw(gameTime);
@@ -258,7 +249,6 @@ namespace Project
         public void OnManipulationStarted(GestureRecognizer sender, ManipulationStartedEventArgs args)
         {
             // Pass Manipulation events to the game objects.
-
         }
 
         public void Tapped(GestureRecognizer sender, TappedEventArgs args)
