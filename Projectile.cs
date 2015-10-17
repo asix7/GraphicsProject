@@ -42,7 +42,8 @@ namespace Project
             basicEffect.World = Matrix.RotationY(time) * Matrix.RotationZ(time * time) * Matrix.Translation(pos);
 
             // Check if collided with the target type of object.
-            checkForCollisions();
+            //checkForCollisions();
+            check2DCollisions();
         }
 
         // Check if collided with the target type of object.
@@ -56,6 +57,30 @@ namespace Project
                     // Cast to object class and call Hit method.
                     switch (obj.type)
                     {
+                        case GameObjectType.Player:
+                            ((Player)obj).Hit();
+                            break;
+                        case GameObjectType.Enemy:
+                            ((Enemy)obj).Hit();
+                            break;
+                    }
+
+                    // Destroy self.
+                    game.Remove(this);
+                }
+            }
+        }
+
+        // Check if the X and Y collided with the target type object
+        private void check2DCollisions()
+        {
+            foreach (var obj in game.gameObjects) {
+                Vector2 target2DPos = new Vector2(((GameObject)obj).pos.X, ((GameObject)obj).pos.Y);
+                Vector2 self2DPos = new Vector2(pos.X, pos.Y);
+                if (obj.type == targetType && (((target2DPos - self2DPos).LengthSquared() <=
+                    Math.Pow(((GameObject)obj).myModel.collisionRadius + this.myModel.collisionRadius, 2)))) {
+                    // Cast to object class and call Hit method.
+                    switch (obj.type) {
                         case GameObjectType.Player:
                             ((Player)obj).Hit();
                             break;

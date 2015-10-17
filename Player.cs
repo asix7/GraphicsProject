@@ -66,6 +66,8 @@ namespace Project
             basicEffect = new BasicEffect(game.GraphicsDevice);
             World = Matrix.Identity;
             BasicEffect.EnableDefaultLighting(player_model, true);
+            //basicEffect.TextureEnabled = true;
+            //basicEffect.Alpha = 0;
             pos = new Vector3(50, game.init_pos, 0);
         }
 
