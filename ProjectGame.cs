@@ -110,6 +110,12 @@ namespace Project
             score = 0;
         }
 
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            this.UnloadContent();
+            this.Dispose();
+        }
+
         protected override void LoadContent()
         {
             // Initialise game object containers.
@@ -163,8 +169,13 @@ namespace Project
                 if (!player.alive)
                 {
                     // When player dies
-                    this.Exit();
+                    for (int i = 0; i < gameObjects.Count; i++)
+                    {
+                        Remove(gameObjects[i]);
+                    }
                     this.UnloadContent();
+                    this.Exit();
+
                     mainPage.EndGame(score);
                 }
                 lightManager.Update();

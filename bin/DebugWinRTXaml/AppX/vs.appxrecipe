@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-22T19:08:47.567</Modified>
+      <Modified>2015-10-22T20:12:45.593</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-22T19:08:35.294</Modified>
+      <Modified>2015-10-22T20:12:45.432</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
@@ -152,11 +152,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
       <PackagePath>MainMenu.xbf</PackagePath>
-      <Modified>2015-10-22T19:05:11.883</Modified>
+      <Modified>2015-10-22T19:31:25.701</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
       <PackagePath>Instructions.xbf</PackagePath>
-      <Modified>2015-10-22T18:52:12.200</Modified>
+      <Modified>2015-10-22T20:09:38.026</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
@@ -164,7 +164,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-22T19:08:47.543</Modified>
+      <Modified>2015-10-22T20:12:45.566</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

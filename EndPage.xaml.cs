@@ -57,5 +57,7 @@ namespace Project
             parent.Children.Remove(this);
         }
 
+
+
     }
 }

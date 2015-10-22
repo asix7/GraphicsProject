@@ -93,6 +93,10 @@ namespace Project
 
             cursor = new Cursor(game);
             game.gameObjects.Add(cursor);
+
+            
+
+            //spriteBatch = ToDisposeContent(new SpriteBatch(GraphicsDevice));
         }
 
         // Shoot a projectile.

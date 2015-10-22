@@ -61,12 +61,15 @@ namespace Project
 
         private void OnLoaded(object s, RoutedEventArgs e)
         {
-            game = new ProjectGame(this);
-            game.Run(this);
+            MainPage newmain = new MainPage();
+            game = new ProjectGame(newmain);
+            game.Run(swapppy);
         }
 
         public void Reload()
         {
+            
+            //game.Dispose();
             //InitializeComponent();
             Loaded += OnLoaded;
             //mainMenu = new MainMenu(this);
