@@ -89,11 +89,23 @@
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong2.tkb">
+      <PackagePath>Content\Phong2.tkb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Phong3.tkb">
+      <PackagePath>Content\Phong3.tkb</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Enemy.tkb">
       <PackagePath>Content\Enemy.tkb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Spaceship.tkb">
       <PackagePath>Content\Spaceship.tkb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\STDARM.tkb">
+      <PackagePath>Content\STDARM.tkb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Textures.tkb">
+      <PackagePath>Content\Textures.tkb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Content\Platform_Textures.tkb">
       <PackagePath>Content\Platform_Textures.tkb</PackagePath>

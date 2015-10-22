@@ -17,58 +17,71 @@ namespace Project
     {
         private Model player_model;
         public bool alive = true;
+        private Effect effect;
+        private Matrix WorldInverseTranspose;
         
-        //player movement speed
+        //Player movement properties
         private float speed = 0.0f;
         private float base_speed = 100.0f;
         private float additional_speed = 20.0f;
         private float bonus_speed = 20.0f;
-        private float max_speed = -1;
+        public float max_speed = -1;
         private float acceleration = 20.0f;
 
+        // Projectile properties
         private float projectileSpeed = 20;
 
-        // velocity that affects player position in Y
+        // Player jump properties
         private float velocityY = 0;
-
-        // player jump
         private float jump_velocity;
         private float base_jump_velocity = 80.0f;
         private float bonus_jump_velocity = 15.0f;
 
         //Standing Platfom information
         bool onGround = true;
-        private float terrheight;
+        private float max_terrheight;
         private float platform_base;
+        public int platform_index;
 
         // Spaceship floats a little bit over the surface
         private float distance_from_floor = 2.0f;
         private float correction_distance = 2.0f;
 
-        // Points used for collisions
-        private float front_point;
-        private float back_point;
-        private float bottom_point;
-        private float right_back_point;
-        private float left_back_point;
-        private float left_front_point;
-        private float right_front_point;
+        //
+        private int enemy_score = 0;
+        private float position_score = 0;
 
-        public static float current_index = 0;
+        // Points used for collisions
+        Vector3 front_point;
+        Vector3 left_front_point;
+        Vector3 right_front_point;
+        Vector3 left_back_point;
+        Vector3 right_back_point;
+        Vector3 front_distance = new Vector3(0, 0, -5);
+        Vector3 left_front_distance = new Vector3(-1, 0, -3);
+        Vector3 right_front_distance = new Vector3(1, 0, -3);
+        Vector3 left_back_distance = new Vector3(-2, 0, 0);
+        Vector3 right_back_distance = new Vector3(2, 0, 0);
+
+
         private Matrix World;
 
-        public Player(ProjectGame game)
+        public Player(ProjectGame game,Vector3 initial_pos)
         {
             this.game = game;
             alive = true;
+            World = Matrix.Identity;
             type = GameObjectType.Player;
             player_model = game.Content.Load<Model>("Spaceship");
             basicEffect = new BasicEffect(game.GraphicsDevice);
-            World = Matrix.Identity;
             BasicEffect.EnableDefaultLighting(player_model, true);
-            //basicEffect.TextureEnabled = true;
-            //basicEffect.Alpha = 0;
-            pos = new Vector3(50, game.init_pos, 0);
+            WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
+
+            collisionRadius = 5.0f;
+
+            //Set initial position
+            pos = initial_pos;
+            update_points();
         }
 
         // Method to create projectile texture to give to newly created projectiles.
@@ -80,12 +93,7 @@ namespace Project
         // Shoot a projectile.
         private void fire()
         {
-            game.Add(new Projectile(game,
-                game.assets.GetModel("player projectile", CreatePlayerProjectileModel),
-                pos,
-                new Vector3(0, projectileSpeed, 0),
-                GameObjectType.Enemy
-            ));
+
         }
 
         // Frame update.
@@ -97,42 +105,56 @@ namespace Project
             }
             if (alive)
             {
-                OutofBounds();
+               
                 float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (game.keyboardState.IsKeyDown(Keys.Space)) { fire(); }
-
+                if (game.keyboardState.IsKeyDown(Keys.U)) { fire(); }
                 Player_movement(deltatime);
+                WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
+                position_score += pos.Z - position_score;
+                game.score = (int)((float)Math.Abs(position_score + enemy_score));
 
             }
         }
 
         void Player_movement(float deltatime)
-        {
-            terrheight = get_platform_height(Platform.standing_platform);
+        {       
+            // Get the lowest points of the patforms
             platform_base = Platform.standing_platform.platform_base;
+            max_terrheight = game.lower_bound;
 
-            if ((pos.Y < terrheight - correction_distance) && (pos.Y > platform_base))
+            // Get the Heights of the pltforms at each point 
+            float terrheight = get_platform_height(pos) - correction_distance;
+            float front_point_terrheight = get_platform_height(front_point) - correction_distance;
+            float left_front_point_terrheight = get_platform_height(left_front_point) - correction_distance;
+            float right_front_point_terrheight = get_platform_height(right_front_point) - correction_distance;
+            float left_back_point_terrheight = get_platform_height(left_back_point) - correction_distance;
+            float right_back_point_terrheight = get_platform_height(right_back_point) - correction_distance;
+
+            // Check if the player collide with the platform, kill it if it does
+            if ((pos.Y > platform_base) &&  
+                ((pos.Y < terrheight) || (front_point.Y < front_point_terrheight) || 
+                (left_front_point.Y < left_front_point_terrheight) || (right_front_point.Y < right_front_point_terrheight) ||
+                (left_back_point.Y < left_back_point_terrheight) || (right_back_point.Y < right_back_point_terrheight)))
             {
                 alive = false;
             }
             else
             {
-
                 //Detect when the player touches the ground
-                if ((pos.Y < terrheight + distance_from_floor) && (pos.Y > platform_base))
+                if ((pos.Y < max_terrheight + distance_from_floor) && (pos.Y > platform_base))
                 {
                     this.onGround = true;
-                    pos.Y = terrheight + distance_from_floor;
+                    pos.Y = max_terrheight + distance_from_floor;
                 }
 
-                // Falls from platform
-                if (pos.Y > terrheight + distance_from_floor)
+                // Turn gravity on
+                if (pos.Y > max_terrheight + distance_from_floor)
                 {
                     this.onGround = false;
                 }
 
                 // If the player is not on the ground it falls
+                // If the player velocity is > 0 it jumps first
                 if (!onGround)
                 {
                     pos.Y += velocityY * deltatime;
@@ -140,14 +162,15 @@ namespace Project
                 }
 
                 // Determine the X position based on accelerometer reading
-                pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
+                
 
-                // move player forward depending of its speed
+                //Apply pltforms bonus
                 if (onGround)
                 {
-                    platform_bonus(Platform.standing_platform);
+                    platform_bonus(Platform.standing_platform, platform_index);
                 }
-                
+
+                // Move player forward depending of its speed
                 if (speed < max_speed)
                 {
                     speed += acceleration * deltatime;
@@ -155,70 +178,76 @@ namespace Project
                 else if (speed > max_speed)
                 {
                     speed -= acceleration * deltatime;
-                }                
+                }
 
-                pos.Z -= speed * deltatime;
+                if (game.keyboardState.IsKeyDown(Keys.A))
+                {
+                    pos.X -= speed * 0.5f * deltatime;
+                }
 
+                if (game.keyboardState.IsKeyDown(Keys.D))
+                {
+                    pos.X += speed * 0.5f * deltatime;
+                }
+                if (game.keyboardState.IsKeyDown(Keys.Space)){
+                    if (onGround)
+                    {
+                       velocityY = jump_velocity;
+                       onGround = false;
+                    }
+                }
+
+                if (!game.keyboardState.IsKeyDown(Keys.P))
+                {
+                    pos.Z -= speed * deltatime;
+                    pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
+                }
+
+                update_points();
+                OutofBounds();
                 World = Matrix.Translation(Vector3.Zero) * Matrix.RotationX(-(float) (Math.PI /2)) * Matrix.Translation(pos);
             }
         }
 
-        void platform_bonus(Platform target_platform)
+        // Update the point positions
+        void update_points()
         {
-            // Get the correct index of the tile to fetch
-            int index = (int)(pos.X / target_platform.tile_width);
-            int tile_type = target_platform.platform[index, 1];
-
-            // Go faster in Blue plaforms
-            if (tile_type == 0)
-            {
-                max_speed = base_speed + (additional_speed * game.difficulty) + bonus_speed;
-            } 
-            else
-            {
-                max_speed = base_speed + (additional_speed * game.difficulty);
-            }
-
-            // Jump higher in red platforms
-            if (tile_type == 1)
-            {
-                jump_velocity = base_jump_velocity + bonus_jump_velocity;
-            }
-            else 
-            {
-                jump_velocity = base_jump_velocity;
-            }
-
-            // Other bonus in grey platforms
-            if (tile_type == 2)
-            {
-                // BONUS NUMBER 3
-            }
-            else
-            {
-                // NORMAL STATUS
-            }
-            
+            front_point = pos + front_distance;
+            left_front_point = pos + left_front_distance;
+            right_front_point = pos + right_front_distance;
+            left_back_point = pos + left_back_distance;
+            right_back_point = pos + right_back_distance;
         }
 
-
         // Optain the current lecture of the platform height under the player
-        public float get_platform_height(Platform target_platform)
+        public float get_platform_height(Vector3 point_position)
         {
             float height;
-            
-            // Get the correct index of the tile to fetch
-            int index = (int)(pos.X / target_platform.tile_width);
+            Platform target_platform = Platform.standing_platform;
 
-            // Detect if the current position is outside of the platform
-            if ((index > target_platform.platform.GetLength(0) - 1) || index < 0 || pos.X < 0)
+            // Check if the point is in the next platform
+            if (point_position.Z < target_platform.z_position_end)
+            {
+                target_platform = Platform.next_standing_platform;
+            }
+
+            // Get the correct index of the tile to fetch
+            int index = (int)(point_position.X / target_platform.tile_width);
+
+            // Detect if the current point is outside of the platform
+            if ((index > (target_platform.platform.GetLength(0) - 1) * 2) || index < 0 || point_position.X < 0)
+            {
+                height = game.lower_bound;
+            }
+
+            else if (index % 2 == 1)
             {
                 height = game.lower_bound;
             }
 
             else
             {
-                int level = target_platform.platform[index, 0];
+                int level = target_platform.platform[index/2, 0];
                 // Detect if the current tile is empty
                 if (level < 0)
                 {
@@ -229,10 +258,59 @@ namespace Project
                 {
                     height = target_platform.Levels[level];
                 }
-
             }
+            
+            if (height >= max_terrheight)
+            {
+                if (height == max_terrheight)
+                {
+                    platform_index = index/2;                    
+                }
+                max_terrheight = height;                
+            }
+
             return height;
         }
+
+        void platform_bonus(Platform target_platform, int index)
+        {
+            // Get the correct index of the tile to fetch
+            if ((index < target_platform.platform.GetLength(0)) && index >= 0)
+            {
+                int tile_type = target_platform.platform[index, 1];
+
+                // Go faster in Blue plaforms
+                if (tile_type == 0)
+                {
+                    max_speed = base_speed + (additional_speed * game.difficulty) + bonus_speed;
+                }
+                else
+                {
+                    max_speed = base_speed + (additional_speed * game.difficulty);
+                }
+
+                // Jump higher in red platforms
+                if (tile_type == 1)
+                {
+                    jump_velocity = base_jump_velocity + bonus_jump_velocity;
+                }
+                else
+                {
+                    jump_velocity = base_jump_velocity;
+                }
+
+                // Other bonus in grey platforms
+                if (tile_type == 2)
+                {
+                    // BONUS NUMBER 3
+                }
+                else
+                {
+                    // NORMAL STATUS
+                }
+            }
+        }
+
 
         // React to getting hit by an enemy bullet.
         public void Hit()

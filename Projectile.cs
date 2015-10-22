@@ -12,21 +12,43 @@ namespace Project
     // Projectile classed, used by both player and enemy.
     class Projectile : GameObject
     {
-        private Vector3 vel;
+        private float velocity;
         private GameObjectType targetType;
         private float hitRadius = 0.5f;
         private float squareHitRadius;
 
+        private Enemy shooter;
+
+        private Matrix rotation;
+        private Vector3 targetPos;
+        private BoundingSphere modelBound;
+
+        float angleX;
+        float angleY;
         // Constructor.
-        public Projectile(ProjectGame game, MyModel myModel, Vector3 pos, Vector3 vel, GameObjectType targetType)
+        public Projectile(ProjectGame game, Enemy shooter, Vector3 pos, float velocity, Vector3 targetPos, GameObjectType targetType)
         {
             this.game = game;
-            this.myModel = myModel;
+            this.shooter = shooter;
             this.pos = pos;
-            this.vel = vel;
+            this.velocity = velocity;
+            //this.targetPos = targetPos;
+            this.targetPos = targetPos;
             this.targetType = targetType;
             squareHitRadius = hitRadius * hitRadius;
-            GetParamsFromModel();
+            collisionRadius = squareHitRadius;
+
+            //GetParamsFromModel();
+
+            model = game.Content.Load<Model>("STDARM");
+            basicEffect = new BasicEffect(game.GraphicsDevice)
+            {
+                World = Matrix.Identity,
+                View = game.camera.View,
+                Projection = game.camera.Projection
+            };
+            BasicEffect.EnableDefaultLighting(model, true);
+
         }
 
         // TASK 3
@@ -35,15 +57,22 @@ namespace Project
         {
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             float time = (float)gameTime.TotalGameTime.TotalSeconds;
+            modelBound = model.CalculateBounds();
             // Apply velocity to position.
-            pos += vel * timeDelta;
+            pos += Vector3.Normalize(new Vector3(game.player.pos.X, targetPos.Y, targetPos.Z) - pos) * timeDelta * velocity;
 
-            // Set local transformation to be spinning according to time for fun.
-            basicEffect.World = Matrix.RotationY(time) * Matrix.RotationZ(time * time) * Matrix.Translation(pos);
+            pointToTarget(game.player.pos, timeDelta);
+            basicEffect.World = (Matrix.Translation(-modelBound.Center.X, -modelBound.Center.Y, -modelBound.Center.Z) * Matrix.Scaling(1) * rotation) * Matrix.Translation(pos);
 
+            // remove the projectile...
+            if (pos.Y < -10)
+            {
+                game.Remove(this);
+            }
             // Check if collided with the target type of object.
             //checkForCollisions();
-            check2DCollisions();
+            checkFor3DCollisions();
+            //check3DCollision();
         }
 
         // Check if collided with the target type of object.
@@ -74,13 +103,16 @@ namespace Project
         // Check if the X and Y collided with the target type object
         private void check2DCollisions()
         {
-            foreach (var obj in game.gameObjects) {
+            foreach (var obj in game.gameObjects)
+            {
                 Vector2 target2DPos = new Vector2(((GameObject)obj).pos.X, ((GameObject)obj).pos.Y);
                 Vector2 self2DPos = new Vector2(pos.X, pos.Y);
                 if (obj.type == targetType && (((target2DPos - self2DPos).LengthSquared() <=
-                    Math.Pow(((GameObject)obj).myModel.collisionRadius + this.myModel.collisionRadius, 2)))) {
+                    Math.Pow(((GameObject)obj).myModel.collisionRadius + this.myModel.collisionRadius, 2))))
+                {
                     // Cast to object class and call Hit method.
-                    switch (obj.type) {
+                    switch (obj.type)
+                    {
                         case GameObjectType.Player:
                             ((Player)obj).Hit();
                             break;
@@ -94,5 +126,71 @@ namespace Project
                 }
             }
         }
+
+        // Check if collided with the target type of object.
+        private void checkFor3DCollisions()
+        {
+            foreach (var obj in game.gameObjects)
+            {
+                if (obj.type == targetType && ((((GameObject)obj).pos - pos).LengthSquared() <=
+                    Math.Pow(((GameObject)obj).collisionRadius + this.collisionRadius, 2)))
+                {
+                    // Cast to object class and call Hit method.
+                    switch (obj.type)
+                    {
+                        case GameObjectType.Player:
+                            ((Player)obj).Hit();
+                            break;
+                        case GameObjectType.Enemy:
+                            ((Enemy)obj).Hit();
+                            break;
+                    }
+
+                    // Destroy self.
+                    game.Remove(this);
+                }
+            }
+        }
+
+
+        public override void Draw(GameTime gametime)
+        {
+            model.Draw(game.GraphicsDevice, basicEffect.World, game.camera.View, game.camera.Projection);
+        }
+
+        public void TowardTarget(Vector3 target, float timeDelta)
+        {
+            //Vector3 target = game.player.pos;
+            double angleY = Math.Atan((pos.Z - target.Z) / (pos.Y - target.Y));
+            //double angleX = Math.Atan((pos.X - target.X) / (pos.Z - target.Z));
+            //rotation = Matrix.RotationX((float)angleX)*Matrix.RotationY(-(float)angleY);
+            //rotation = Matrix.RotationY((float)angleY);
+            Vector3 direction = Vector3.Normalize(targetPos - pos);
+
+            //direction = Vector3.TransformCoordinate(direction, rotation);
+            pos += direction * 200 * timeDelta;
+        }
+
+        private void pointToTarget(Vector3 target, float timeDelta)
+        {
+            if (pos.Z < target.Z && pos.Y > target.Y)
+            {
+                angleY = (float)(Math.Atan((pos.Z - target.Z) / (pos.Y - target.Y)));
+                angleX = (float)(Math.Atan((pos.X - target.X) / (pos.Z - target.Z)));
+            }
+            rotation = Matrix.RotationX(angleX) * Matrix.RotationY(angleY);
+        }
+
+        public void UpdateShooter()
+        {
+            // update the enemy shooter where it lands
+            // could do collision detect with the platform
+            if (pos.Y <= 0)
+            {
+                shooter.LastHitPosition = pos;
+            }
+        }
     }
+
+
 }

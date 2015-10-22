@@ -45,6 +45,8 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyController.cs" />
     <Compile Include="GameInput.cs" />
+    <Compile Include="Light.cs" />
+    <Compile Include="LightManager.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -75,6 +77,9 @@
     <Content Include="Content\enemy projectile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <ToolkitTexture Include="Content\Textures.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitTexture>
     <ToolkitTexture Include="Content\Platform_Textures.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitTexture>
@@ -82,6 +87,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>
     <ToolkitFxc Include="Content\Phong.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitFxc>
+    <ToolkitFxc Include="Content\Phong2.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitFxc>
+    <ToolkitFxc Include="Content\Phong3.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitFxc>
     <Content Include="Content\player projectile.png">
@@ -161,6 +172,11 @@
   </ItemGroup>
   <ItemGroup>
     <ToolkitModel Include="Content\Spaceship.blend">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ToolkitModel>
+  </ItemGroup>
+  <ItemGroup>
+    <ToolkitModel Include="Content\STDARM.blend">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitModel>
   </ItemGroup>

@@ -14,7 +14,7 @@ namespace Project
         public Game game;
 
         // Attributes
-        private Vector3 cameraPos;
+        public Vector3 cameraPos;
         private Vector3 cameraTarget;
         private Vector3 cameraUp;
         private float z_distance_from_player = 125.0f;

@@ -23,6 +23,9 @@ namespace Project
         public GameObjectType type = GameObjectType.None;
         public Vector3 pos;
         public BasicEffect basicEffect;
+        public Model model;
+        public float collisionRadius;
+
 
         public abstract void Update(GameTime gametime);
         public virtual void Draw(GameTime gametime)

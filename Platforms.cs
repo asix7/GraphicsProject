@@ -13,6 +13,7 @@ namespace Project
         public Effect effect;
         public Matrix World = Matrix.Identity;
         public Matrix WorldInverseTranspose;
+        private LightManager lightManager;
         public VertexInputLayout inputLayout;
         public Buffer<VertexPositionNormalTexture> vertices;
         public string textureName;
@@ -25,8 +26,9 @@ namespace Project
         static public int[,] last_platform = new int[,] { { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 } };
         static public int[,] next_platform = new int[,] { { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 } };
 
-        // Curret platform were the player is standing and the next one
+        // Curret and Next platforms were the player is standing
         static public Platform standing_platform;
+        static public Platform next_standing_platform;
 
         // Platform information of the instance
         public int[,] platform;
@@ -40,26 +42,27 @@ namespace Project
         // Dimensions of each tile
         public float tile_width = 20.0f;
         public float tile_depth = 100.0f;
+        public float tile_separation = 20.0f;
 
-        // Off set from the lower level to render walls
+        // Platform standard properties
         float base_offset = 2.0f;
         public float platform_base;
+        public float platfom_midpoint;
 
         // Min number of extra tiles according to game difficulty
         int max_extra_tiles = 4;
         static int min_extra_tiles = -1;
 
         // Base normals
-        Vector3 right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, -1));
-        Vector3 right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 1));
-        Vector3 right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, -1));
-        Vector3 right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 1));
+        Vector3 right_top_front_normal;
+        Vector3 right_top_back_normal;
+        Vector3 right_bottom_front_normal;
+        Vector3 right_bottom_back_normal;
 
-
-        Vector3 left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
-        Vector3 left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
-        Vector3 left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 1));
-        Vector3 left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, -1));
+        Vector3 left_top_front_normal;
+        Vector3 left_top_back_normal;
+        Vector3 left_bottom_back_normal;
+        Vector3 left_bottom_front_normal;
 
         public Platform(ProjectGame game)
         {
@@ -67,8 +70,10 @@ namespace Project
             if (standing_platform == null)
             {
                 standing_platform = this;
+                next_standing_platform = this;
             }
-
+            
+            // Less tiles if the difficulty is higher
             min_extra_tiles = (int)(max_extra_tiles - game.difficulty);
             type = GameObjectType.Platform;
 
@@ -77,7 +82,7 @@ namespace Project
             texture = game.Content.Load<Texture2D>(textureName);
 
             platform = next_platform;
-            next_platform = create_platform(platform);
+            next_platform = create_platform(platform); 
 
             // Create the vertices based on the platform information
             VertexPositionNormalTexture[] platform_vertices = create_vertices(platform, last_platform, next_platform);
@@ -87,11 +92,17 @@ namespace Project
             z_position_start = z_position;
             z_position -= tile_depth;
             z_position_end = z_position;
+            platfom_midpoint = (platform.GetLength(0) * tile_width) / 2;
 
             platform_base = Levels[0] - base_offset;
 
-            vertices = Buffer.Vertex.New(game.GraphicsDevice, platform_vertices);
+            
+
             effect = game.Content.Load<Effect>("Phong");
+            lightManager = new LightManager(game);
+            lightManager.SetLighting(effect);
+
+            vertices = Buffer.Vertex.New(game.GraphicsDevice, platform_vertices);
             inputLayout = VertexInputLayout.FromBuffer(0, vertices);
             this.game = game;
         }
@@ -183,26 +194,41 @@ namespace Project
                     Vector2 texture_coord3 = texture_coords[2];
                     Vector2 texture_coord4 = texture_coords[3];
 
-                    right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, -1));
-                    right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 1));
-                    right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, -1));
-                    right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 1));
-
-                    left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
-                    left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
-                    left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 1));
-                    left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, -1));
-
                     getNormals(x, previous_platform, next_platform);
-                    getLeftBottomFrontNormal(x, previous_platform);
-                    getLeftBottomBackNormal(x, next_platform);
-                    getLeftTopFrontNormal(x, previous_platform);
-                    getLeftTopBackNormal(x, next_platform);
-                    getRightBottomFrontNormal(x, previous_platform);
-                    getRightBottomBackNormal(x, next_platform);
-                    getRightTopFrontNormal(x, previous_platform);
-                    getRightTopBackNormal(x, next_platform);
+                    float start_x = (tile_width * x) + (tile_separation * x);
+                    float end_x = (tile_width * (x + 1 )) + (tile_separation * x);
 
+                    lower = platform_base;
+                    upper = Levels[platform[x, 0]];
+
+                    // Create Top Surface
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position), left_top_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position - tile_depth), left_top_back_normal, texture_coord2));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
+
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position), left_top_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position), right_top_front_normal, texture_coord4));
+
+
+                    // Create Left Surfaces
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, lower, z_position), left_bottom_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, lower, z_position - tile_depth), left_bottom_back_normal, texture_coord2));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
+
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, lower, z_position), left_bottom_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position), left_top_front_normal, texture_coord4));
+
+                    // Create Right Surfaces
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, lower, z_position), right_bottom_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position), right_top_front_normal, texture_coord2));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
+
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, lower, z_position), right_bottom_front_normal, texture_coord1));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
+                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, lower, z_position - tile_depth), right_bottom_back_normal, texture_coord4));
+                    
                     // Create Front Wall if there is no tile behind it
                     if (previous_platform[x, 0] < platform[x, 0])
                     {
@@ -214,101 +240,20 @@ namespace Project
                         else
                         {
                             lower = Levels[previous_platform[x, 0]];
+                            left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
+                            right_bottom_front_normal = Vector3.Normalize(new Vector3(1, 1, 1));
                         }
 
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position), left_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord2));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord3));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, lower, z_position), left_bottom_front_normal, texture_coord1));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, upper, z_position), left_top_front_normal, texture_coord2));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position), right_top_front_normal, texture_coord3));
 
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position), left_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord3));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord4));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(start_x, lower, z_position), left_bottom_front_normal, texture_coord1));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, upper, z_position), right_top_front_normal, texture_coord3));
+                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(end_x, lower, z_position), right_bottom_front_normal, texture_coord4));
 
                     }
-
-                    lower = platform_base;
-                    upper = Levels[platform[x, 0]];
-
-                    // Create Top Surface
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord1));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position - tile_depth), left_top_back_normal, texture_coord2));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord1));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-                    platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord4));
-
-                    // Create Left Wall if there are no adjacent tiles
-                    if (x == 0 || platform[x - 1, 0] < 0)
-                    {
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position), left_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position - tile_depth), left_bottom_back_normal, texture_coord2));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
-
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, lower, z_position), left_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * x, upper, z_position), left_top_front_normal, texture_coord4));
-                    }
-
-                    // Create Right Wall if there are no adjacent tiles
-                    if (x == platform.GetLength(0) - 1 || platform[x + 1, 0] < 0)
-                    {
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord2));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord1));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-                        platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position - tile_depth), right_bottom_back_normal, texture_coord4));
-                    }
-
-                    // Compare and create wall between adjacent tiles 
-                    else
-                    {
-                        // Right
-                        if (platform[x, 0] > platform[x + 1, 0])
-                        {
-                            lower = Levels[platform[x + 1, 0]];
-                            upper = Levels[platform[x, 0]];
-
-
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord1));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), right_top_front_normal, texture_coord2));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), right_bottom_front_normal, texture_coord1));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), right_top_back_normal, texture_coord3));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position - tile_depth), right_bottom_back_normal, texture_coord4));
-
-                        }
-                        else if (platform[x, 0] < platform[x + 1, 0])
-                        // Left
-                        {
-                            lower = Levels[platform[x, 0]];
-                            upper = Levels[platform[x + 1, 0]];
-
-                            texture_coords = getTexure(platform[x + 1, 1]);
-                            texture_coord1 = texture_coords[0];
-                            texture_coord2 = texture_coords[1];
-                            texture_coord3 = texture_coords[2];
-                            texture_coord4 = texture_coords[3];
-
-                            getLeftBottomFrontNormal(x + 1, previous_platform);
-                            getLeftBottomBackNormal(x + 1, next_platform);
-                            getLeftTopFrontNormal(x + 1, previous_platform);
-                            getLeftTopBackNormal(x + 1, next_platform);
-
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), left_bottom_front_normal, texture_coord1));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position - tile_depth), left_bottom_back_normal, texture_coord2));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
-
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), lower, z_position), left_bottom_front_normal, texture_coord1));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position - tile_depth), left_top_back_normal, texture_coord3));
-                            platform_vetrices.Add(new VertexPositionNormalTexture(new Vector3(tile_width * (x + 1), upper, z_position), left_top_front_normal, texture_coord4));
-
-
-                        }
-                    }
+                    
                 }
             }
             return platform_vetrices.ToArray();
@@ -349,360 +294,92 @@ namespace Project
         void getNormals(int index, int[,] previous_platform, int[,] next_platform)
         {
 
-            if (index == 0)
+            if (previous_platform[index, 0] == -1)
             {
-                if (previous_platform[index, 0] != -1)
+                left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, 1));
+                left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
+            }
+            else
+            {
+                left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
+
+                if (previous_platform[index, 0] < platform[index, 0])
                 {
-                    left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, -1));
+                    left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
+                }
+                else if (previous_platform[index, 0] == platform[index, 0])
+                {
+                    left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
+                }
+                else
+                {
                     left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
                 }
+            }
+
+            if (next_platform[index, 0] == -1)
+            {
+                left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, -1));
+                left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
+            }
+            else
+            {
+                left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
+                if (platform[index, 0] > next_platform[index, 0])
+                {
+                    left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
+                }
+                else if (platform[index, 0] == next_platform[index, 0])
+                {
+                    left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
+                }
                 else
                 {
-                    left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
-                    if (previous_platform[index, 0] < platform[index, 0])
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
-                    }
-                    else if (previous_platform[index, 0] == platform[index, 0])
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
-                    }
-                    else
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
-                    }
-                }
-
-                if (next_platform[index, 0] != -1)
-                {
-                    left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 1));
                     left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
                 }
-                else
-                {
-                    left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
-                    if (platform[index, 0] > next_platform[index, 0])
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
-                    }
-                    else if (platform[index, 0] == next_platform[index, 0])
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
-                    }
-                    else
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
-                    }
-                }
             }
-            else if (index == platform.GetLength(0) - 1)
+
+            if (previous_platform[index, 0] == -1)
             {
-                if (previous_platform[index, 0] == -1)
+                right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, 1));
+                right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 1));
+            }
+            else
+            {
+                right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, 0));
+                if (previous_platform[index, 0] < platform[index, 0])
                 {
-                    right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, -1));
+                    right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 1));
+                }
+                else if (previous_platform[index, 0] == platform[index, 0])
+                {
+                    right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 0));
                 }
                 else
                 {
-                    right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, 0));
-                    if (previous_platform[index, 0] < platform[index, 0])
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, -1));
-                    }
-                    else if (previous_platform[index, 0] == platform[index, 0])
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 0));
-                    }
-                    else
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 1));
-                    }
+                    right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, -1));
                 }
+            }
 
-                if (next_platform[index, 0] != -1)
+            if (next_platform[index, 0] == -1)
+            {
+                right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, -1));
+                right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, -1));
+            }
+            else
+            {
+                right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 0));
+                if (platform[index, 0] > next_platform[index, 0])
                 {
-                    right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 1));
+                    right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, -1));
+                }
+                else if (platform[index, 0] == next_platform[index, 0])
+                {
+                    right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 0));
                 }
                 else
                 {
-                    right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 0));
-                    if (platform[index, 0] > next_platform[index, 0])
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 1));
-                    }
-                    else if (platform[index, 0] == next_platform[index, 0])
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 0));
-                    }
-                    else
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, -1));
-                    }
-                }
-            }
-        }
-
-        void getLeftBottomFrontNormal(int index, int[,] previous_platform)
-        {
-            if (index > 0)
-            {
-                if ((previous_platform[index, 0] == -1) && (previous_platform[index - 1, 0] == -1))
-                {
-                    if (platform[index - 1, 0] == -1)
-                    {
-                        left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, -1));
-                    }
-                    else
-                    {
-                        left_bottom_front_normal = Vector3.Normalize(new Vector3(0, -1, -1));
-                    }
-                }
-
-                else if ((previous_platform[index - 1, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (previous_platform[index, 0] != -1)
-                    {
-                        left_bottom_front_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
-                    }
-                }
-
-                else if ((previous_platform[index, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (previous_platform[index - 1, 0] != -1)
-                    {
-                        left_bottom_front_normal = Vector3.Normalize(new Vector3(0, -1, 0));
-                    }
-                }
-            }
-        }
-
-        void getLeftBottomBackNormal(int index, int[,] next_platform)
-        {
-            if (index > 0 && index > platform.GetLength(0))
-            {
-                if ((next_platform[index, 0] == -1) && (next_platform[index - 1, 0] == -1))
-                {
-                    if (platform[index - 1, 0] == -1)
-                    {
-                        left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 1));
-                    }
-                    else
-                    {
-                        left_bottom_back_normal = Vector3.Normalize(new Vector3(0, -1, 1));
-                    }
-                }
-
-                else if ((next_platform[index + 1, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (next_platform[index, 0] != -1)
-                    {
-                        left_bottom_back_normal = Vector3.Normalize(new Vector3(-1, -1, 0));
-                    }
-                }
-                else if ((next_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index + 1, 0] != -1)
-                    {
-                        left_bottom_back_normal = Vector3.Normalize(new Vector3(0, -1, 0));
-                    }
-                }
-            }
-        }
-
-        void getLeftTopFrontNormal(int index, int[,] previous_platform)
-        {
-            if (index > 0 && index < platform.GetLength(0))
-            {
-                if ((previous_platform[index, 0] == -1) && (previous_platform[index - 1, 0] == -1))
-                {
-                    if (platform[index - 1, 0] == -1)
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, -1));
-                    }
-                    else
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(0, 1, -1));
-                    }
-                }
-
-                else if ((previous_platform[index - 1, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (previous_platform[index, 0] != -1)
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
-                    }
-                }
-
-                else if ((previous_platform[index, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (previous_platform[index - 1, 0] != -1)
-                    {
-                        left_top_front_normal = Vector3.Normalize(new Vector3(0, 1, 0));
-                    }
-                }
-            }
-        }
-
-        void getLeftTopBackNormal(int index, int[,] next_platform)
-        {
-            if (index > 0 && index > platform.GetLength(0))
-            {
-                if ((next_platform[index, 0] == -1) && (next_platform[index - 1, 0] == -1))
-                {
-                    if (platform[index - 1, 0] == -1)
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 1));
-                    }
-                    else
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(0, 1, 1));
-                    }
-                }
-
-                else if ((next_platform[index + 1, 0] == -1) && (platform[index - 1, 0] == -1))
-                {
-                    if (next_platform[index, 0] != -1)
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(-1, 1, 0));
-                    }
-                }
-                else if ((next_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index + 1, 0] != -1)
-                    {
-                        left_top_back_normal = Vector3.Normalize(new Vector3(0, 1, 0));
-                    }
-                }
-            }
-        }
-
-        void getRightBottomFrontNormal(int index, int[,] previous_platform)
-        {
-            if (index < platform.GetLength(0) - 1)
-            {
-                if ((previous_platform[index, 0] == -1) && (previous_platform[index + 1, 0] == -1))
-                {
-                    if (platform[index + 1, 0] == -1)
-                    {
-                        right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, -1));
-                    }
-                    else
-                    {
-                        right_bottom_front_normal = Vector3.Normalize(new Vector3(0, -1, -1));
-                    }
-                }
-
-                else if ((previous_platform[index + 1, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (previous_platform[index, 0] != -1)
-                    {
-                        right_bottom_front_normal = Vector3.Normalize(new Vector3(1, -1, 0));
-                    }
-                }
-                else if ((previous_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (previous_platform[index + 1, 0] != -1)
-                    {
-                        right_bottom_front_normal = Vector3.Normalize(new Vector3(0, -1, 0));
-                    }
-                }
-            }
-        }
-
-        void getRightBottomBackNormal(int index, int[,] next_platform)
-        {
-            if (index < platform.GetLength(0) - 1)
-            {
-                if ((next_platform[index, 0] == -1) && (next_platform[index + 1, 0] == -1))
-                {
-                    if (platform[index + 1, 0] == -1)
-                    {
-                        right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 1));
-                    }
-                    else
-                    {
-                        right_bottom_back_normal = Vector3.Normalize(new Vector3(0, -1, 1));
-                    }
-                }
-
-                else if ((next_platform[index + 1, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index, 0] != 1)
-                    {
-                        right_bottom_back_normal = Vector3.Normalize(new Vector3(1, -1, 0));
-                    }
-                }
-                else if ((next_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index + 1, 0] != -1)
-                    {
-                        right_bottom_back_normal = Vector3.Normalize(new Vector3(0, -1, 0));
-                    }
-                }
-            }
-        }
-
-        void getRightTopFrontNormal(int index, int[,] previous_platform)
-        {
-            if (index < platform.GetLength(0) - 1)
-            {
-                if ((previous_platform[index, 0] == -1) && (previous_platform[index + 1, 0] == -1))
-                {
-                    if (platform[index + 1, 0] == -1)
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, -1));
-                    }
-                    else
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(0, 1, -1));
-                    }
-                }
-
-                else if ((previous_platform[index + 1, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (previous_platform[index, 0] != -1)
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(1, 1, 0));
-                    }
-                }
-                else if ((previous_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (previous_platform[index + 1, 0] != -1)
-                    {
-                        right_top_front_normal = Vector3.Normalize(new Vector3(0, 1, 0));
-                    }
-                }
-            }
-        }
-
-        void getRightTopBackNormal(int index, int[,] next_platform)
-        {
-            if (index < platform.GetLength(0) - 1)
-            {
-                if ((next_platform[index, 0] == -1) && (next_platform[index + 1, 0] == -1))
-                {
-                    if (platform[index + 1, 0] == -1)
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 1));
-                    }
-                    else
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(0, 1, 1));
-                    }
-                }
-
-                else if ((next_platform[index + 1, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index, 0] != 1)
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 0));
-                    }
-                }
-                else if ((next_platform[index, 0] == -1) && (platform[index + 1, 0] == -1))
-                {
-                    if (next_platform[index + 1, 0] != -1)
-                    {
-                        right_top_back_normal = Vector3.Normalize(new Vector3(0, 1, 0));
-                    }
+                    right_top_back_normal = Vector3.Normalize(new Vector3(1, 1, 1));
                 }
             }
         }
@@ -718,6 +395,7 @@ namespace Project
             effect.Parameters["worldInvTrp"].SetValue(WorldInverseTranspose);
             effect.Parameters["ModelTexture"].SetResource(texture);
 
+            lightManager.SetLighting(effect);
             // Setup the vertices
             game.GraphicsDevice.SetVertexBuffer(vertices);
             game.GraphicsDevice.SetVertexInputLayout(inputLayout);
@@ -752,7 +430,8 @@ namespace Project
             min_extra_tiles = (int)(max_extra_tiles - game.difficulty);
 
             WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
-
+            lightManager.Update();
+            lightManager.SetLighting(effect);
             //Update the parameters
             effect.Parameters["World"].SetValue(World);
             effect.Parameters["Projection"].SetValue(game.camera.Projection);

@@ -180,3 +180,7 @@ E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Textures.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong2.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong3.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\STDARM.tkb

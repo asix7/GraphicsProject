@@ -27,16 +27,26 @@ float4x4 View;
 float4x4 Projection;
 float4 cameraPos;
 float4 lightAmbCol = float4(0.4f, 0.4f, 0.4f, 1.0f);
-float4 lightPntPos = float4(0.0f, 0.0f, -2.0f, 1.0f);
+float4 lightPntPos = float4(-50.0f, 900.0f, -10.0f, 1.0f);
 float4 lightPntCol = float4(1.0f, 1.0f, 1.0f, 1.0f);
 float4x4 worldInvTrp;
 //
+
+texture2D ModelTexture;
+//texture sampler state
+SamplerState linearSampler
+{
+    Filter = min_mag_mip_linear;
+    AddressU = Clamp;
+    AddressV = Clamp;
+    MaxAnisotropy = 16;
+};
 
 struct VS_IN
 {
 	float4 pos : SV_POSITION;
 	float4 nrm : NORMAL;
-	float4 col : COLOR;
+	float2 tex : TEXCOORD0;
 // Other vertex properties, e.g. texture co-ords, surface Kd, Ks, etc
 };
 
@@ -44,6 +54,7 @@ struct PS_IN
 {
 	float4 pos : SV_POSITION;
 	float4 col : COLOR;
+	float2 tex : TEXCOORD0;
 };
 
 PS_IN VS( VS_IN input )
@@ -59,7 +70,7 @@ PS_IN VS( VS_IN input )
 
 	// Calculate ambient RGB intensities
 	float Ka = 1;
-	float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
+	float3 amb = lightAmbCol.rgb*Ka;
 
 	// Calculate diffuse RBG reflections, we save the results of L.N because we will use it again
 	// (when calculating the reflected ray in our specular component)
@@ -67,7 +78,7 @@ PS_IN VS( VS_IN input )
 	float Kd = 1;
 	float3 L = normalize(lightPntPos.xyz - worldVertex.xyz);
 	float LdotN = saturate(dot(L,worldNormal.xyz));
-	float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*LdotN;
+	float3 dif = fAtt*lightPntCol.rgb*Kd*LdotN;
 
 	// Calculate specular reflections
 	float Ks = 1;
@@ -79,19 +90,25 @@ PS_IN VS( VS_IN input )
 
 	// Combine reflection components
 	output.col.rgb = amb.rgb+dif.rgb+spe.rgb;
-	output.col.a = input.col.a;
+	output.col.a = 1;
 
 	// Transform vertex in world coordinates to camera coordinates
 	float4 worldPos = mul(input.pos, World);
     float4 viewPos = mul(worldPos, View);
     output.pos = mul(viewPos, Projection);
 
+	//set texture coords
+	output.tex = input.tex;	
+
 	return output;
 }
 
 float4 PS( PS_IN input ) : SV_Target
 {
-	return input.col;
+	float4 textureColor = ModelTexture.Sample(linearSampler, input.tex);
+	textureColor.a = 1;
+
+	return textureColor * input.col;
 }
 
 
@@ -99,7 +116,7 @@ technique Lighting
 {
     pass Pass1
     {
-		Profile = 9.1;
+		Profile = 10;
         VertexShader = VS;
         PixelShader = PS;
     }

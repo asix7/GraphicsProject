@@ -78,7 +78,7 @@ namespace Project
         public float gravity = -100.0f;
 
         // Player initial position
-        public float init_pos;
+        public Vector3 init_pos;
 
         public bool started = false;
         /// <summary>
@@ -120,17 +120,16 @@ namespace Project
             addedGameObjects = new Stack<GameObject>();
             removedGameObjects = new Stack<GameObject>();
 
-            // Create game objects.
 
-
-            gameObjects.Add(new EnemyController(this));
             // Create the first platform and get the height
             Platform first_platform = new Platform(this);
             int level = first_platform.platform[2, 0];
-            init_pos = first_platform.Levels[level];
+            init_pos = new Vector3(first_platform.platfom_midpoint, first_platform.Levels[level], 0);
 
-            player = new Player(this);
+            // Create the player
+            player = new Player(this, init_pos);
             gameObjects.Add(player);
+
             //Number of platforms to render on screen at any time
             gameObjects.Add(first_platform);
             gameObjects.Add(new Platform(this));
@@ -140,6 +139,10 @@ namespace Project
             gameObjects.Add(new Platform(this));
             gameObjects.Add(new Platform(this));
             gameObjects.Add(new Platform(this));
+
+
+            // Create game objects.
+            gameObjects.Add(new EnemyController(this));
 
             spriteBatch = ToDisposeContent(new SpriteBatch(GraphicsDevice));
 
@@ -181,7 +184,7 @@ namespace Project
                 //mainPage.UpdateScore(score);
 
                 // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, difficulty, Platform.standing_platform.z_position_end);
+                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, score, player.max_speed);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))
                 {
@@ -200,7 +203,7 @@ namespace Project
             if (started)
             {
                 // Clears the screen with the Color.CornflowerBlue
-                GraphicsDevice.Clear(Color.GhostWhite);
+                GraphicsDevice.Clear(Color.Black);
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Draw(gameTime);
