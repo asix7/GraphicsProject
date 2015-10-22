@@ -63,6 +63,10 @@ namespace Project
         Vector3 left_back_distance = new Vector3(-2, 0, 0);
         Vector3 right_back_distance = new Vector3(2, 0, 0);
 
+        public bool OnGround
+        {
+            get { return onGround; }
+        }
 
         private Matrix World;
 
@@ -75,6 +79,9 @@ namespace Project
             player_model = game.Content.Load<Model>("Spaceship");
             basicEffect = new BasicEffect(game.GraphicsDevice);
             BasicEffect.EnableDefaultLighting(player_model, true);
+
+            //effect = game.Content.Load<Effect>("Phong");
+
             WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
 
             collisionRadius = 5.0f;
@@ -82,6 +89,9 @@ namespace Project
             //Set initial position
             pos = initial_pos;
             update_points();
+
+            //effect = game.Content.Load<Effect>("Gouraud");
+            //game.plat
         }
 
         // Method to create projectile texture to give to newly created projectiles.

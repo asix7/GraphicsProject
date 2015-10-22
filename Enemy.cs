@@ -37,6 +37,7 @@ namespace Project
             this.game = game;
             type = GameObjectType.Player;
             model = game.Content.Load<Model>("Enemy");
+            
             basicEffect = new BasicEffect(game.GraphicsDevice)
             {
                 View = game.camera.View,
@@ -75,7 +76,7 @@ namespace Project
             fireTimer -= gameTime.ElapsedGameTime.Milliseconds * game.difficulty;
             if (fireTimer < 0)
             {
-                fire();
+                //fire();
                 setFireTimer();
             }
             //pos.Z = game.camera.Position.Z + distance_from_screen;

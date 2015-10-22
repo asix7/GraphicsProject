@@ -126,10 +126,6 @@ namespace Project
             int level = first_platform.platform[2, 0];
             init_pos = new Vector3(first_platform.platfom_midpoint, first_platform.Levels[level], 0);
 
-            // Create the player
-            player = new Player(this, init_pos);
-            gameObjects.Add(player);
-
             //Number of platforms to render on screen at any time
             gameObjects.Add(first_platform);
             gameObjects.Add(new Platform(this));
@@ -140,6 +136,9 @@ namespace Project
             gameObjects.Add(new Platform(this));
             gameObjects.Add(new Platform(this));
 
+            // Create the player
+            player = new Player(this, init_pos);
+            gameObjects.Add(player);
 
             // Create game objects.
             gameObjects.Add(new EnemyController(this));

@@ -39,6 +39,24 @@ namespace Project
             this.game = game;
         }
 
+        public void SetPlayerLight()
+        {
+            Player player = game.player;
+            packedLights[2].lightPos = new Vector4(player.pos.X, player.pos.Y, player.pos.Z - 10, 0f);
+            if (player.OnGround)
+            {
+                packedLights[2].lightCol = new Vector4(0f, 0f, 1f, 1f);
+                packedLights[2].lightCol *= 0.6f;
+            }
+
+            else
+            {
+                //packedLights[2].lightPos = new Vector4(player.pos.X, player.pos.Y, player.pos.Z - 10, 0f);
+                packedLights[2].lightCol = new Vector4(1f, 0.7f, 0f, 1f);
+                packedLights[2].lightCol *= 0.6f;
+            }
+        }
+
         public void SetLighting(Effect effect)
         {
             // TASK 2: Pass parameters to shader
@@ -50,7 +68,11 @@ namespace Project
         // This could be alternatively be accomplished by passing an intensity value to the shader, however this is mathematically idential and requires no extra data transfer 
         public void Update()
         {
-            packedLights[1].lightPos = new Vector4(game.camera.Position.X - 100, game.camera.Position.Y, game.camera.Position.Z + 100, 1f);
+            packedLights[1].lightPos = new Vector4(game.camera.Position.X , game.camera.Position.Y + 1000, game.camera.Position.Z + 1000, 1f);
+
+            SetPlayerLight();
+            //packedLights[2].lightPos = new Vector4(game.player.pos.X, game.player.pos.Y, game.player.pos.Z, 1f);
+
             if (game.keyboardState.IsKeyDown(Keys.Up))
             {
                 for (int i = 0; i < MAX_LIGHTS; i++)
