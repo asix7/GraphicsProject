@@ -47,6 +47,11 @@ namespace Project
             parent.Children.Remove(this);
         }
 
+        private void ExitGame(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
+
         // TASK 3: Function for setting difficulty
         private void changeDifficulty(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {

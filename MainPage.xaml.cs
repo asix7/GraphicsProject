@@ -29,21 +29,56 @@ namespace Project
     /// </summary>
     public sealed partial class MainPage
     {
-        public readonly ProjectGame game;
+        public ProjectGame game;
         public MainMenu mainMenu;
+        public EndPage endPage;
+
         public MainPage()
         {
             InitializeComponent();
+            //Loaded += OnLoaded;
+            
+            
             game = new ProjectGame(this);
             game.Run(this);
+            
             mainMenu = new MainMenu(this);
+            //endPage = new EndPage(this);
+
             this.Children.Add(mainMenu);
+            InGameButton(Visibility.Collapsed);
         }
 
         // TASK 1: Update the game's score
         public void UpdateScore(int score)
         {
             txtScore.Text = "Score: " + score.ToString();
+            endPage.UpdateScore(score);
+        }
+
+        private void OnLoaded(object s, RoutedEventArgs e)
+        {
+            game = new ProjectGame(this);
+            game.Run(this);
+        }
+
+        public void Reload()
+        {
+            //InitializeComponent();
+            Loaded += OnLoaded;
+            //mainMenu = new MainMenu(this);
+            //endPage = new EndPage(this);
+
+            this.Children.Add(mainMenu);
+            InGameButton(Visibility.Collapsed);
+        }
+
+        public void UpdateShootButton(bool canShoot)
+        {
+            if (canShoot)
+                buttonShoot.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(100,0,255,0));
+            else
+                buttonShoot.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(100, 255, 0, 0));
         }
 
         public void DisplayCameraPlayerPos(Vector3 cameraPos, Vector3 cameraTarget, Vector3 playerPos, float index, float noindex)
@@ -69,13 +104,31 @@ namespace Project
             game.player.cursor.SwitchEnemy();
         }
 
+
         // TASK 2: Starts the game.  Not that it seems easier to simply move the game.Run(this) command to this function,
         // however this seems to result in a reduction in texture quality on some machines.  Not sure why this is the case
         // but this is an easy workaround.  Not we are also making the command button invisible after it is clicked
         public void StartGame()
         {
+            
             this.Children.Remove(mainMenu);
+            InGameButton(Visibility.Visible);
             game.started = true;
+        }
+
+        public void InGameButton(Visibility status)
+        {
+            buttonJump.Visibility = status;
+            buttonShoot.Visibility = status;
+        }
+
+        public void EndGame(int score)
+        {
+            endPage = new EndPage(this, score);
+            //game.UnloadContent();
+            //game.Dispose();
+            //this.Children.Remove(this);
+            this.Children.Add(endPage);
         }
     }
 }

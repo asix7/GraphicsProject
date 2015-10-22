@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Project.EndPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="buttonMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="194,404,0,0" VerticalAlignment="Top" Height="125" Width="284" Click="ToMainMenu"/>
+        <Button x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Margin="846,404,0,0" VerticalAlignment="Top" Height="125" Width="284" Click="ExitGame"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="488,84,539,613" TextWrapping="Wrap" Text="GAME OVER" VerticalAlignment="Center" Width="339" Height="71" FontSize="40"/>
+        <TextBlock x:Name="txtHighScore" HorizontalAlignment="Left" Margin="460,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Height="80" FontSize="20"/>
+
+    </Grid>
+</Page>

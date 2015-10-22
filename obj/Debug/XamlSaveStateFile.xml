@@ -1,19 +1,19 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
     <LocalAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\obj\debug\intermediatexaml\project.winrtxaml.exe" HashGuid="8d5c80c2-215a-c851-bc61-b188468ea6af" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.d3dcompiler.dll" HashGuid="c0258fad-5f14-113d-fd9e-2d38c33804a3" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.direct2d1.dll" HashGuid="119138f8-22f4-8379-6598-95ebed02a661" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.direct3d11.dll" HashGuid="4c05a799-608d-c868-eb22-a8f88fe41ea6" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.dll" HashGuid="f40acf82-8afa-9e9a-aaa7-98b8c685b76d" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.dxgi.dll" HashGuid="be2c2291-5ada-cf76-cff4-7ac0d0e6682d" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.mediafoundation.dll" HashGuid="d63dee70-95df-f753-24fe-d12399f7e1da" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.audio.dll" HashGuid="da7bbc65-b5b4-5c7e-0aa9-9ac67918d7ec" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.dll" HashGuid="f4c9fd2d-a75c-1075-70d8-88f6fb182b68" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.game.dll" HashGuid="4d7421c5-f686-fac1-96b2-119449f3236d" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.graphics.dll" HashGuid="27953f49-1017-5656-78af-a0752457aa9c" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.input.dll" HashGuid="7a7b7d42-e2fa-7c1e-7930-573857028fbb" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.toolkit.yaml.dll" HashGuid="630c74b9-79ef-f012-e54c-99ca72369431" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.xaudio2.dll" HashGuid="3813b90d-04d3-f95c-96a2-801ca40c84b5" />
-    <ReferenceAssembly PathName="c:\users\localtemp\documents\github\graphicsproject\sharpdx\sharpdx.xinput.dll" HashGuid="5719bb1b-37b5-ac20-34bb-18713cfd5342" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.d3dcompiler.dll" HashGuid="c0258fad-5f14-113d-fd9e-2d38c33804a3" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.direct2d1.dll" HashGuid="119138f8-22f4-8379-6598-95ebed02a661" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.direct3d11.dll" HashGuid="4c05a799-608d-c868-eb22-a8f88fe41ea6" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.dll" HashGuid="f40acf82-8afa-9e9a-aaa7-98b8c685b76d" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.dxgi.dll" HashGuid="be2c2291-5ada-cf76-cff4-7ac0d0e6682d" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.mediafoundation.dll" HashGuid="d63dee70-95df-f753-24fe-d12399f7e1da" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.audio.dll" HashGuid="da7bbc65-b5b4-5c7e-0aa9-9ac67918d7ec" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.dll" HashGuid="f4c9fd2d-a75c-1075-70d8-88f6fb182b68" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.game.dll" HashGuid="4d7421c5-f686-fac1-96b2-119449f3236d" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.graphics.dll" HashGuid="27953f49-1017-5656-78af-a0752457aa9c" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.input.dll" HashGuid="7a7b7d42-e2fa-7c1e-7930-573857028fbb" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.toolkit.yaml.dll" HashGuid="630c74b9-79ef-f012-e54c-99ca72369431" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.xaudio2.dll" HashGuid="3813b90d-04d3-f95c-96a2-801ca40c84b5" />
+    <ReferenceAssembly PathName="c:\users\jchee\desktop\graphicsproject\sharpdx\sharpdx.xinput.dll" HashGuid="5719bb1b-37b5-ac20-34bb-18713cfd5342" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

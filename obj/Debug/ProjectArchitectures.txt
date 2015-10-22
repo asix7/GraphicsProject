@@ -1,1 +1,1 @@
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\Project.csproj;neutral
+C:\Users\jchee\Desktop\GraphicsProject\Project.csproj;neutral

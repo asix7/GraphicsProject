@@ -162,7 +162,10 @@ namespace Project
             {
                 if (!player.alive)
                 {
+                    // When player dies
                     this.Exit();
+                    this.UnloadContent();
+                    mainPage.EndGame(score);
                 }
                 lightManager.Update();
                 keyboardState = keyboardManager.GetState();
@@ -183,6 +186,7 @@ namespace Project
 
                 // Update camera and player position for testing
                 mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, score, player.max_speed);
+                mainPage.UpdateShootButton(player.fireOn);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))
                 {

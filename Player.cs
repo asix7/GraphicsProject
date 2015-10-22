@@ -40,7 +40,7 @@ namespace Project
 
         //Standing Platfom information
         bool onGround = true;
-        bool fireOn = false;
+        public bool fireOn = false;
         private float wait_timer = 0;
         private float max_terrheight;
         private float platform_base;
