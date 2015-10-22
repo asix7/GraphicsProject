@@ -22,7 +22,8 @@ namespace Project
         Random rnd = new Random();
         // Height of each platform level
         public float[] Levels = new float[] { 0, 10.0f, 20.0f };
-        // Last platform created
+
+        // Store the information of the last platform created and next to be created
         static public int[,] last_platform = new int[,] { { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 } };
         static public int[,] next_platform = new int[,] { { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 } };
 
@@ -35,6 +36,7 @@ namespace Project
 
         // Z coordinate to start creating the each new platform
         static float z_position = 0;
+
         // Z coordinate that the platform instance start and ends
         public float z_position_start;
         public float z_position_end;
@@ -44,7 +46,7 @@ namespace Project
         public float tile_depth = 100.0f;
         public float tile_separation = 20.0f;
 
-        // Platform standard properties
+        // Platform properties
         float base_offset = 2.0f;
         public float platform_base;
         public float platfom_midpoint;
@@ -53,7 +55,7 @@ namespace Project
         int max_extra_tiles = 4;
         static int min_extra_tiles = -1;
 
-        // Base normals
+        // Normals
         Vector3 right_top_front_normal;
         Vector3 right_top_back_normal;
         Vector3 right_bottom_front_normal;
@@ -81,6 +83,7 @@ namespace Project
             textureName = "Platform_Textures";
             texture = game.Content.Load<Texture2D>(textureName);
 
+            // Store information of the platform and create information for the next one
             platform = next_platform;
             next_platform = create_platform(platform); 
 
@@ -92,38 +95,20 @@ namespace Project
             z_position_start = z_position;
             z_position -= tile_depth;
             z_position_end = z_position;
-            platfom_midpoint = (platform.GetLength(0) * tile_width) / 2;
 
-            platform_base = Levels[0] - base_offset;
+            // Calculates midpoint and base
+            platfom_midpoint = (platform.GetLength(0) * tile_width) - tile_width/2;
+            platform_base = Levels[0] - base_offset;            
 
-            
-
+            //Load effects
             effect = game.Content.Load<Effect>("Phong");
             lightManager = new LightManager(game);
             lightManager.SetLighting(effect);
 
+            // Pass the vertices data
             vertices = Buffer.Vertex.New(game.GraphicsDevice, platform_vertices);
             inputLayout = VertexInputLayout.FromBuffer(0, vertices);
             this.game = game;
-        }
-
-        // Change the first platform position and its information 
-        // The new position is set after the current last platform
-        public void change_platform()
-        {
-            // Changes platform information
-            platform = next_platform;
-            next_platform = create_platform(platform);
-
-            // Creates the new vertices and set this platform as the last platform
-            VertexPositionNormalTexture[] platform_vertices = create_vertices(platform, last_platform, next_platform);
-            vertices = Buffer.Vertex.New(game.GraphicsDevice, platform_vertices);
-            last_platform = platform;
-
-            // Updates Z positions
-            z_position_start = z_position;
-            z_position -= tile_depth;
-            z_position_end = z_position;
         }
 
         // Creates the new information for a platform
@@ -178,23 +163,26 @@ namespace Project
         // Only creates necessary vertices that will be render on camera at any time
         public VertexPositionNormalTexture[] create_vertices(int[,] platform, int[,] previous_platform, int[,] next_platform)
         {
-
+            // Reference points for the faces
             float upper, lower;
             List<VertexPositionNormalTexture> platform_vetrices = new List<VertexPositionNormalTexture>();
 
-            //Normal for the vertices
-
+            // Create vertices for each tile
             for (int x = 0; x < platform.GetLength(0); x++)
             {
                 if (platform[x, 0] != -1)
                 {
+                    //Get the texture for the tile
                     Vector2[] texture_coords = getTexure(platform[x, 1]);
                     Vector2 texture_coord1 = texture_coords[0];
                     Vector2 texture_coord2 = texture_coords[1];
                     Vector2 texture_coord3 = texture_coords[2];
                     Vector2 texture_coord4 = texture_coords[3];
 
+                    //Normal for the vertices
                     getNormals(x, previous_platform, next_platform);
+                    
+                    // Change start and end position in X
                     float start_x = (tile_width * x) + (tile_separation * x);
                     float end_x = (tile_width * (x + 1 )) + (tile_separation * x);
 
@@ -259,6 +247,7 @@ namespace Project
             return platform_vetrices.ToArray();
         }
 
+        // Get the texture coordinates according to the tile information
         Vector2[] getTexure(int texture_number)
         {
             Vector2 texture_1;
@@ -291,6 +280,7 @@ namespace Project
             return new Vector2[4] { texture_1, texture_2, texture_3, texture_4 };
         }
 
+        // Change the value of the normals
         void getNormals(int index, int[,] previous_platform, int[,] next_platform)
         {
 
@@ -384,6 +374,24 @@ namespace Project
             }
         }
 
+        // Change the first platform position and its information 
+        // The new position is set after the current last platform
+        public void change_platform()
+        {
+            // Changes platform information
+            platform = next_platform;
+            next_platform = create_platform(platform);
+
+            // Creates the new vertices and set this platform as the last platform
+            VertexPositionNormalTexture[] platform_vertices = create_vertices(platform, last_platform, next_platform);
+            vertices = Buffer.Vertex.New(game.GraphicsDevice, platform_vertices);
+            last_platform = platform;
+
+            // Updates Z positions
+            z_position_start = z_position;
+            z_position -= tile_depth;
+            z_position_end = z_position;
+        }
 
         public override void Draw(GameTime gameTime)
         {
@@ -395,6 +403,7 @@ namespace Project
             effect.Parameters["worldInvTrp"].SetValue(WorldInverseTranspose);
             effect.Parameters["ModelTexture"].SetResource(texture);
 
+            // Change lights
             lightManager.SetLighting(effect);
             // Setup the vertices
             game.GraphicsDevice.SetVertexBuffer(vertices);
@@ -426,13 +435,15 @@ namespace Project
             {
                 change_platform();
             }
+
             Update_player_platforms();
             min_extra_tiles = (int)(max_extra_tiles - game.difficulty);
 
             WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
+
+            //Update the parameters
             lightManager.Update();
             lightManager.SetLighting(effect);
-            //Update the parameters
             effect.Parameters["World"].SetValue(World);
             effect.Parameters["Projection"].SetValue(game.camera.Projection);
             effect.Parameters["View"].SetValue(game.camera.View);

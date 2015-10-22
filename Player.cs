@@ -15,11 +15,10 @@ namespace Project
     // Player class.
     public class Player : GameObject
     {
-        private Model player_model;
         public bool alive = true;
-        private Effect effect;
         private Matrix WorldInverseTranspose;
 
+        // Create the cursor for the player target
         public Cursor cursor;
 
         //Player movement properties
@@ -41,6 +40,8 @@ namespace Project
 
         //Standing Platfom information
         bool onGround = true;
+        bool fireOn = false;
+        private float wait_timer = 0;
         private float max_terrheight;
         private float platform_base;
         public int platform_index;
@@ -49,8 +50,8 @@ namespace Project
         private float distance_from_floor = 2.0f;
         private float correction_distance = 2.0f;
 
-        //
-        private int enemy_score = 0;
+        // Different types of score
+        public int enemy_score = 0;
         private float position_score = 0;
 
         // Points used for collisions
@@ -82,8 +83,6 @@ namespace Project
             basicEffect = new BasicEffect(game.GraphicsDevice);
             BasicEffect.EnableDefaultLighting(model, true);
 
-            //effect = game.Content.Load<Effect>("Phong");
-
             WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
 
             collisionRadius = 5.0f;
@@ -92,29 +91,20 @@ namespace Project
             pos = initial_pos;
             update_points();
 
-            //effect = game.Content.Load<Effect>("Gouraud");
-            //game.plat
-
             cursor = new Cursor(game);
             game.gameObjects.Add(cursor);
-        }
-
-        // Method to create projectile texture to give to newly created projectiles.
-        private MyModel CreatePlayerProjectileModel()
-        {
-            return game.assets.CreateTexturedCube("player projectile.png", new Vector3(0.3f, 0.2f, 0.25f));
         }
 
         // Shoot a projectile.
         private void fire()
         {
-            if (game.gameObjects.Contains(cursor.Target))
+            // Gett the target selected by the cursor and shots at it
+            if (game.gameObjects.Contains(cursor.Target) && fireOn)
             {
                 game.Add(new Projectile(game,
-                "bitcoin",
-                pos,
+                "Medallion",
+                front_point,
                 projectileSpeed,
-                //new Vector3(pos.X, 100, pos.Z-500),
                 cursor.Target,
                 GameObjectType.Enemy
                 ));
@@ -124,30 +114,37 @@ namespace Project
         // Frame update.
         public override void Update(GameTime gameTime)
         {
-            if (max_speed == -1)
-            {
-                max_speed = base_speed + (additional_speed * game.difficulty);
-            }
             if (alive)
             {
-               
+                // Set the max_speed according to the difficulty
+                if (max_speed == -1)
+                {
+                    max_speed = base_speed + (additional_speed * game.difficulty);
+                }
                 float deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (game.keyboardState.IsKeyDown(Keys.U)) { fire(); }
+
+                // Lowers the timer to wait before shoting
+                wait_timer -= deltatime;
+
+                //Moves the player
                 Player_movement(deltatime);
                 WorldInverseTranspose = Matrix.Transpose(Matrix.Invert(World));
-                position_score += pos.Z - position_score;
+
+                // Updates the Score
+                position_score = (Math.Abs(pos.Z))/10.0f;
                 game.score = (int)((float)Math.Abs(position_score + enemy_score));
 
             }
         }
 
+        // Control the player movement and collision
         void Player_movement(float deltatime)
         {       
             // Get the lowest points of the patforms
             platform_base = Platform.standing_platform.platform_base;
             max_terrheight = game.lower_bound;
 
-            // Get the Heights of the pltforms at each point 
+            // Get the Heights of the platforms at each point 
             float terrheight = get_platform_height(pos) - correction_distance;
             float front_point_terrheight = get_platform_height(front_point) - correction_distance;
             float left_front_point_terrheight = get_platform_height(left_front_point) - correction_distance;
@@ -205,36 +202,39 @@ namespace Project
                     speed -= acceleration * deltatime;
                 }
 
-                if (game.keyboardState.IsKeyDown(Keys.A))
+                // Keyboard control
+                if (game.keyboardState.IsKeyDown(Keys.Left))
                 {
-                    pos.X -= speed * 0.5f * deltatime;
+                    pos.X -= speed * 0.25f * deltatime;
                 }
 
-                if (game.keyboardState.IsKeyDown(Keys.D))
+                if (game.keyboardState.IsKeyDown(Keys.Right))
                 {
-                    pos.X += speed * 0.5f * deltatime;
-                }
-                if (game.keyboardState.IsKeyDown(Keys.Space)){
-                    if (onGround)
-                    {
-                       velocityY = jump_velocity;
-                       onGround = false;
-                    }
+                    pos.X += speed * 0.25f * deltatime;
                 }
 
-                if (!game.keyboardState.IsKeyDown(Keys.P))
+                if (game.keyboardState.IsKeyPressed(Keys.C)){
+                    Jump();
+                }
+                if (game.keyboardState.IsKeyPressed(Keys.X))
                 {
-                    pos.Z -= speed * deltatime;
-                    pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
+                    Shoot();
                 }
 
+                //Update the positions in X and Z
+                pos.Z -= speed * deltatime;
+                pos.X += (float)game.accelerometerReading.AccelerationX * speed * deltatime;
+                
+                //Updte the collision points
                 update_points();
+                // Check if the player is out of bounds
                 OutofBounds();
+
                 World = Matrix.Translation(Vector3.Zero) * Matrix.RotationX(-(float) (Math.PI /2)) * Matrix.Translation(pos);
             }
         }
 
-        // Update the point positions
+        // Update the point positions for collision
         void update_points()
         {
             front_point = pos + front_distance;
@@ -244,7 +244,7 @@ namespace Project
             right_back_point = pos + right_back_distance;
         }
 
-        // Optain the current lecture of the platform height under the player
+        // Optain the current lecture of the platform height under a point
         public float get_platform_height(Vector3 point_position)
         {
             float height;
@@ -264,7 +264,8 @@ namespace Project
             {
                 height = game.lower_bound;
             }
-
+            
+            //Check if the position is void
             else if (index % 2 == 1)
             {
                 height = game.lower_bound;
@@ -297,6 +298,7 @@ namespace Project
             return height;
         }
 
+        // Give the player the correct bonus of each tile type
         void platform_bonus(Platform target_platform, int index)
         {
             // Get the correct index of the tile to fetch
@@ -324,14 +326,14 @@ namespace Project
                     jump_velocity = base_jump_velocity;
                 }
 
-                // Other bonus in grey platforms
+                // Enable shooting in grey platforms
                 if (tile_type == 2)
                 {
-                    // BONUS NUMBER 3
+                    fireOn = true;
                 }
                 else
                 {
-                    // NORMAL STATUS
+                    fireOn = false;
                 }
             }
         }
@@ -351,6 +353,8 @@ namespace Project
                 alive = false;
             }
         }
+
+        //Jump if is on ground
         public void Jump()
         {
             if (onGround)
@@ -360,30 +364,19 @@ namespace Project
             }
         }
 
+        //Shoot if is enable
         public void Shoot()
         {
-            fire();
-        }
-
-        /*
-        public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
-        {
-            if (onGround)
+            if (wait_timer < 0)
             {
-                velocityY = jump_velocity;
-                onGround = false;
-            }
-        }*/
+                fire();
+                wait_timer = 2;
+            }            
+        }
 
         public override void Draw(GameTime gametime)
         {
             model.Draw(game.GraphicsDevice, World, game.camera.View, game.camera.Projection);
         }
-
-        public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
-        {
-            pos.X += (float)args.Delta.Translation.X / 100;
-        }
-
     }
 }

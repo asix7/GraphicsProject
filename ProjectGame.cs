@@ -50,13 +50,14 @@ namespace Project
         public MainPage mainPage;
         public SpriteBatch spriteBatch;
 
+        public LightManager lightManager;
+
         public List<GameObject> gameObjects;
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
-        
+
 
         public Player player;
-        //public Cursor cursor;
         public int score;
 
 
@@ -65,9 +66,6 @@ namespace Project
 
         // Represents the camera's position and orientation
         public Camera camera;
-
-        // Graphics assets
-        public Assets assets;
 
         // Random number generator
         public Random random;
@@ -98,7 +96,6 @@ namespace Project
 
             // Create the keyboard manager
             keyboardManager = new KeyboardManager(this);
-            assets = new Assets(this);
             random = new Random();
             input = new GameInput();
 
@@ -109,9 +106,8 @@ namespace Project
             input.gestureRecognizer.ManipulationCompleted += OnManipulationCompleted;
 
             this.mainPage = mainPage;
-
-            score = 0;
             difficulty = 1;
+            score = 0;
         }
 
         protected override void LoadContent()
@@ -151,9 +147,10 @@ namespace Project
 
         protected override void Initialize()
         {
-            Window.Title = "Project 2";
+            Window.Title = "Space Glider";
 
             camera = new Camera(this);
+            lightManager = new LightManager(this);
 
             base.Initialize();
         }
@@ -167,6 +164,7 @@ namespace Project
                 {
                     this.Exit();
                 }
+                lightManager.Update();
                 keyboardState = keyboardManager.GetState();
                 flushAddedAndRemovedGameObjects();
 
@@ -184,7 +182,7 @@ namespace Project
                 //mainPage.UpdateScore(score);
 
                 // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.Target, player.pos, score, player.max_speed);
+                mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, score, player.max_speed);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))
                 {
@@ -260,7 +258,7 @@ namespace Project
             foreach (var obj in gameObjects)
             {
                 obj.Tapped(sender, args);
-            }            
+            }
         }
 
         public void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)

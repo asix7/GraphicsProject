@@ -1,9 +1,6 @@
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\enemy projectile.png
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\player projectile.png
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
@@ -180,10 +177,6 @@ E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
 E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Textures.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong2.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong3.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\STDARM.tkb
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Textures.tkb
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
@@ -278,3 +271,14 @@ C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\ProjectArchi
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\delta_rocket.tkb
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Simple_Ring.tkb
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\bitcoin.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\sphere.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Cursor.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Medallion.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate

@@ -23,7 +23,7 @@
 
 // these won't change in a given iteration of the shader
 
-#define MAX_LIGHTS 3
+#define MAX_LIGHTS 4
 
 struct Light
 {

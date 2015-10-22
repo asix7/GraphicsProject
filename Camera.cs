@@ -34,23 +34,7 @@ namespace Project
                 cameraPos = value;
             }
         }
-        public Vector3 Rotation
-        {
-            get { return cameraRot; }
-            set
-            {
-                cameraRot = value;
-            }
-        }
 
-        public Vector3 Target
-        {
-            get { return cameraTarget; }
-        }
-        public Vector3 Up
-        {
-            get { return cameraUp; }
-        }
 
         // Set the intil values for the camera
         public Camera(ProjectGame game)

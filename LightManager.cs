@@ -9,10 +9,10 @@ namespace Project
 {
     using SharpDX.Toolkit.Graphics;
     using SharpDX.Toolkit.Input;
-    // This class is optional.  It just makes it a bit easier to see what's been added, and to organise lighting separately from other code.
-    class LightManager
+    // Control the game lighting
+    public class LightManager
     {
-        const int MAX_LIGHTS = 3;
+        const int MAX_LIGHTS = 4;
         private ProjectGame game;
         public struct PackedLight
         {
@@ -21,73 +21,74 @@ namespace Project
         }
 
         public Vector4 ambientCol;
-        // TASKS 3 & 6: Note that an array of PackedLights has been used here, rather than the Light Class defined before.
-        // This is not required, but somewhat more efficient as a single array can be passed to the shader rather than individual Lights.
-        // It also makes it easier to extend the number of lights (as in Task 6)
         public PackedLight[] packedLights;
+
         public LightManager(ProjectGame game)
         {
-            packedLights = new PackedLight[MAX_LIGHTS];
-            ambientCol = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
-            // TASK 3: Initialise lights
-
-            packedLights[1].lightPos = new Vector4(game.camera.Position.X, game.camera.Position.Y, game.camera.Position.Z, 1f);
-            packedLights[1].lightCol = new Vector4(1f, 1f, 1f, 1f);
             
-
-
+            packedLights = new PackedLight[MAX_LIGHTS];
+            // Set the ambient color equal to the Cosmic latte
+            ambientCol = new Vector4(1, 0.9725f, 0.9059f, 1.0f);
             this.game = game;
         }
 
+        // Create a Blue light if the player is on the ground, a yellow one otherwise
         public void SetPlayerLight()
         {
             Player player = game.player;
-            packedLights[2].lightPos = new Vector4(player.pos.X, player.pos.Y, player.pos.Z - 10, 0f);
+            packedLights[1].lightPos = new Vector4(player.pos.X, player.pos.Y, player.pos.Z - 10, 0f);
+            //Blue
             if (player.OnGround)
             {
-                packedLights[2].lightCol = new Vector4(0f, 0f, 1f, 1f);
-                packedLights[2].lightCol *= 0.6f;
+                packedLights[1].lightCol = new Vector4(0f, 0f, 1f, 1f);
+                packedLights[1].lightCol *= 0.4f;
             }
-
+            //Yellow
             else
             {
-                //packedLights[2].lightPos = new Vector4(player.pos.X, player.pos.Y, player.pos.Z - 10, 0f);
-                packedLights[2].lightCol = new Vector4(1f, 0.7f, 0f, 1f);
-                packedLights[2].lightCol *= 0.6f;
+                packedLights[1].lightCol = new Vector4(1f, 0.7f, 0f, 1f);
+                packedLights[1].lightCol *= 0.4f;
+            }
+
+        }
+
+        // Creates a red light for every enemy onthe sky
+        public void SetEnemiesLight()
+        {
+            int i = 2;
+            // Get the position of the light according to the enemies
+            foreach (var obj in game.gameObjects)
+            {
+                if (obj.type == GameObjectType.Enemy)
+                {
+                    packedLights[i].lightPos = new Vector4(obj.pos.X, obj.pos.Y, obj.pos.Z, 1f);
+                    packedLights[i].lightCol = new Vector4(0.3f, 0f, 0f, 0.3f);
+                    i++;
+                }
+            }
+            // Turn the lights out if the Enemy dies
+            if (i < MAX_LIGHTS)
+            {
+                packedLights[i].lightPos = new Vector4(0, 0, 0, 0f);
+                packedLights[i].lightCol = new Vector4(0f, 0f, 0f, 0f);
             }
         }
 
+        // Updates the parameters
         public void SetLighting(Effect effect)
         {
-            // TASK 2: Pass parameters to shader
             effect.Parameters["lightAmbCol"].SetValue(ambientCol);
             effect.Parameters["lights"].SetValue(packedLights);
         }
 
-        // TASK 5: Keyboard control
-        // This could be alternatively be accomplished by passing an intensity value to the shader, however this is mathematically idential and requires no extra data transfer 
+        // Updates every light assigned
         public void Update()
         {
-            packedLights[1].lightPos = new Vector4(game.camera.Position.X , game.camera.Position.Y + 1000, game.camera.Position.Z + 1000, 1f);
-
+            // Turn on the general light 
+            packedLights[0].lightPos = new Vector4(game.camera.Position.X, game.camera.Position.Y + 2000, game.camera.Position.Z + 2000, 1f);
+            packedLights[0].lightCol = new Vector4(1f, 1f, 1f, 1f) * 0.3f;
+            SetEnemiesLight();
             SetPlayerLight();
-            //packedLights[2].lightPos = new Vector4(game.player.pos.X, game.player.pos.Y, game.player.pos.Z, 1f);
-
-            if (game.keyboardState.IsKeyDown(Keys.Up))
-            {
-                for (int i = 0; i < MAX_LIGHTS; i++)
-                {
-                    packedLights[i].lightCol = packedLights[i].lightCol * 1.05f;
-                }
-            }
-
-            if (game.keyboardState.IsKeyDown(Keys.Down))
-            {
-                for (int i = 0; i < MAX_LIGHTS; i++)
-                {
-                    packedLights[i].lightCol = packedLights[i].lightCol * 0.95f;
-                }
-            }
         }
     }
 }
