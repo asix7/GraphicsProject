@@ -32,7 +32,8 @@ namespace Project
         public ProjectGame game;
         public MainMenu mainMenu;
         public EndPage endPage;
-
+        public bool displayerDebug;
+         
         public MainPage()
         {
             InitializeComponent();
@@ -47,13 +48,15 @@ namespace Project
 
             this.Children.Add(mainMenu);
             InGameButton(Visibility.Collapsed);
+            txtCameraPos.Visibility = Visibility.Collapsed;
+            txtCameraTarget.Visibility = Visibility.Collapsed;
+            txtPlayerPos.Visibility = Visibility.Collapsed;
         }
 
         // TASK 1: Update the game's score
         public void UpdateScore(int score)
         {
             txtScore.Text = "Score: " + score.ToString();
-            endPage.UpdateScore(score);
         }
 
         private void OnLoaded(object s, RoutedEventArgs e)
@@ -81,13 +84,27 @@ namespace Project
                 buttonShoot.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(100, 255, 0, 0));
         }
 
-        public void DisplayCameraPlayerPos(Vector3 cameraPos, Vector3 cameraTarget, Vector3 playerPos, float index, float noindex)
+        public void DisplayCameraPlayerPos(Vector3 cameraPos, Vector3 cameraTarget, Vector3 playerPos, float noindex)
         {
-            txtScore.Text = index.ToString() + " and " + noindex.ToString();
-            txtCameraPos.Text = "Camera Position: " + cameraPos.ToString();
-            txtCameraTarget.Text = "Camera Target: " + cameraTarget.ToString();
-            txtPlayerPos.Text = "Player Position: " + playerPos.ToString();
+            
+            if (displayerDebug)
+            {
+                txtCameraPos.Visibility = Visibility.Visible;
+                txtCameraTarget.Visibility = Visibility.Visible;
+                txtPlayerPos.Visibility = Visibility.Visible;
+                txtCameraPos.Text = "Camera Position: " + cameraPos.ToString();
+                txtCameraTarget.Text = "Camera Target: " + cameraTarget.ToString();
+                txtPlayerPos.Text = "Player Position: " + playerPos.ToString();
+            }
+            else
+            {
+                txtCameraPos.Visibility = Visibility.Collapsed;
+                txtCameraTarget.Visibility = Visibility.Collapsed;
+                txtPlayerPos.Visibility = Visibility.Collapsed;
+            }
+            
         }
+
 
         private void Jump(object sender, RoutedEventArgs e)
         {
@@ -99,10 +116,6 @@ namespace Project
             game.player.Shoot();
         }
 
-        private void SwitchAim(object sender, RoutedEventArgs e)
-        {
-            game.player.cursor.SwitchEnemy();
-        }
 
 
         // TASK 2: Starts the game.  Not that it seems easier to simply move the game.Run(this) command to this function,

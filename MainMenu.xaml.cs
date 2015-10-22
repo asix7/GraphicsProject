@@ -57,5 +57,10 @@ namespace Project
         {
             if (parent.game != null) { parent.game.difficulty = (float)e.NewValue; }
         }
+
+        private void Debugging(object sender, RoutedEventArgs e)
+        {
+            parent.displayerDebug = true;
+        }
     }
 }

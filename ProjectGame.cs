@@ -182,10 +182,10 @@ namespace Project
                 }
 
                 // Update score board on the game page
-                //mainPage.UpdateScore(score);
+                mainPage.UpdateScore(score);
 
                 // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, score, player.max_speed);
+                mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, player.max_speed);
                 mainPage.UpdateShootButton(player.fireOn);
 
                 if (keyboardState.IsKeyDown(Keys.Escape))

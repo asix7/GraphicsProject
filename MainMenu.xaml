@@ -9,9 +9,10 @@
     d:DesignWidth="1280"
     d:DesignHeight="800">
     <Grid>
-        <Button x:Name="cmdStart" Content="Start" HorizontalAlignment="Left" Height="77" Margin="503,247,0,0" VerticalAlignment="Top" Width="163" Click="StartGame"/>
-        <Slider x:Name="sldDifficulty" HorizontalAlignment="Left" Height="38" Margin="208,10,0,0" VerticalAlignment="Top" Width="159" ValueChanged="changeDifficulty" Value="1" IsTabStop="False" Minimum="0.5" Maximum="3" LargeChange="0.1" SmallChange="0.01" StepFrequency="0.01"/>
-        <Button x:Name="cmdInstructions" Content="Instructions" HorizontalAlignment="Left" Height="77" Margin="765,247,0,0" VerticalAlignment="Top" Width="163" Click="LoadInstructions"/>
-        <Button x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Height="77" Margin="641,417,0,0" VerticalAlignment="Top" Width="163" Click="ExitGame"/>
+        <Button x:Name="cmdStart" Content="Start" HorizontalAlignment="Left" Height="77" Margin="503,166,0,0" VerticalAlignment="Top" Width="163" Click="StartGame"/>
+        <Slider x:Name="sldDifficulty" HorizontalAlignment="Left" Height="38" Margin="208,25,0,0" VerticalAlignment="Top" Width="159" ValueChanged="changeDifficulty" Value="1" IsTabStop="False" Minimum="0.5" Maximum="3" LargeChange="0.1" SmallChange="0.01" StepFrequency="0.01"/>
+        <Button x:Name="cmdInstructions" Content="Instructions" HorizontalAlignment="Left" Height="77" Margin="503,291,0,0" VerticalAlignment="Top" Width="163" Click="LoadInstructions"/>
+        <Button x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Height="77" Margin="503,419,0,0" VerticalAlignment="Top" Width="163" Click="ExitGame"/>
+        <CheckBox x:Name="debugBox" Content="Debug" HorizontalAlignment="Left" Margin="205,80,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Debugging"/>
     </Grid>
 </Page>
