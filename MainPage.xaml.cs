@@ -47,7 +47,7 @@ namespace Project
             //endPage = new EndPage(this);
 
             this.Children.Add(mainMenu);
-            InGameButton(Visibility.Collapsed);
+            InGameView(Visibility.Collapsed);
             txtCameraPos.Visibility = Visibility.Collapsed;
             txtCameraTarget.Visibility = Visibility.Collapsed;
             txtPlayerPos.Visibility = Visibility.Collapsed;
@@ -76,7 +76,7 @@ namespace Project
             //endPage = new EndPage(this);
 
             this.Children.Add(mainMenu);
-            InGameButton(Visibility.Collapsed);
+            InGameView(Visibility.Collapsed);
         }
 
         public void UpdateShootButton(bool canShoot)
@@ -128,12 +128,13 @@ namespace Project
         {
             
             this.Children.Remove(mainMenu);
-            InGameButton(Visibility.Visible);
+            InGameView(Visibility.Visible);
             game.started = true;
         }
 
-        public void InGameButton(Visibility status)
+        public void InGameView(Visibility status)
         {
+            txtScore.Visibility = status;
             buttonJump.Visibility = status;
             buttonShoot.Visibility = status;
         }

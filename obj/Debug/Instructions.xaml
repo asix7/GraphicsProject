@@ -11,6 +11,12 @@
     <Grid>
         <Button x:ConnectionId='1' x:Name="cmdBack" Content="Back" HorizontalAlignment="Left" Height="77" Margin="891,131,0,0" VerticalAlignment="Top" Width="163"               />
         <TextBlock x:Name="txtInstructions" HorizontalAlignment="Left" Height="293" Margin="381,134,0,0" TextWrapping="Wrap" Text="Enjoy the game" VerticalAlignment="Top" Width="366" FontSize="14.667"/>
+        <Image x:Name="blue" HorizontalAlignment="Left" Height="100" Margin="185,433,0,0" VerticalAlignment="Top" Width="100" Source="Content/bluetile.png"/>
+        <Image x:Name="red" HorizontalAlignment="Left" Height="100" Margin="381,433,0,0" VerticalAlignment="Top" Width="100" Source="Content/redtile.png"/>
+        <Image x:Name="yellow" HorizontalAlignment="Left" Height="100" Margin="569,433,0,0" VerticalAlignment="Top" Width="100" Source="Content/yellowtile.png"/>
+        <TextBlock x:Name="bluehelpblock" HorizontalAlignment="Left" Margin="185,578,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Height="158" Width="100"/>
+        <TextBlock x:Name="redhelpblock" HorizontalAlignment="Left" Margin="381,578,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Height="158" Width="100"/>
+        <TextBlock x:Name="yellowblock" HorizontalAlignment="Left" Margin="569,578,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Height="158" Width="100"/>
     </Grid>
 </Page>
 

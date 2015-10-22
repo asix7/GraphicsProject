@@ -8,7 +8,7 @@
     mc:Ignorable="d"    
     d:DesignWidth="1280"
     d:DesignHeight="800">
-    <TextBlock x:Name="txtScore" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="38" Width="117"/>
+    <TextBlock x:Name="txtScore" HorizontalAlignment="Left" Margin="45,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="38" Width="121" FontSize="20"/>
     <TextBlock x:Name="txtCameraPos" HorizontalAlignment="Left" Margin="61,304,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="280" FontSize="16"/>
     <TextBlock x:Name="txtPlayerPos" HorizontalAlignment="Left" Margin="61,424,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="280" FontSize="16"/>
     <TextBlock x:Name="txtCameraTarget" HorizontalAlignment="Left" Margin="61,364,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="280" FontSize="16"/>

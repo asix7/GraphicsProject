@@ -8,10 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:ConnectionId='1' x:Name="buttonMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="194,404,0,0" VerticalAlignment="Top" Height="125" Width="284"                   />
-        <Button x:ConnectionId='2' x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Margin="846,404,0,0" VerticalAlignment="Top" Height="125" Width="284"                 />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="488,84,539,613" TextWrapping="Wrap" Text="GAME OVER" VerticalAlignment="Center" Width="339" Height="71" FontSize="40"/>
-        <TextBlock x:Name="txtHighScore" HorizontalAlignment="Left" Margin="460,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Height="80" FontSize="20"/>
+        <Button x:ConnectionId='1' x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Margin="457,443,0,0" VerticalAlignment="Top" Height="125" Width="516"                 />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="534,94,493,603" TextWrapping="Wrap" Text="GAME OVER" VerticalAlignment="Center" Width="339" Height="71" FontSize="40"/>
+        <TextBlock x:Name="txtHighScore" HorizontalAlignment="Left" Margin="582,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Height="80" FontSize="26.667"/>
 
     </Grid>
 </Page>

@@ -75,6 +75,10 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Content\background.jpg" />
+    <Content Include="Content\bluetile.png" />
+    <Content Include="Content\redtile.png" />
+    <Content Include="Content\yellowtile.png" />
     <ToolkitTexture Include="Content\Platform_Textures.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitTexture>

@@ -86,7 +86,7 @@ namespace Project
         {
             // Turn on the general light 
             packedLights[0].lightPos = new Vector4(game.camera.Position.X, game.camera.Position.Y + 2000, game.camera.Position.Z + 2000, 1f);
-            packedLights[0].lightCol = new Vector4(1f, 1f, 1f, 1f) * 0.3f;
+            packedLights[0].lightCol = new Vector4(1f, 1f, 1f, 1f) * 0.5f;
             SetEnemiesLight();
             SetPlayerLight();
         }

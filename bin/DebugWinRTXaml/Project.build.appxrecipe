@@ -79,6 +79,18 @@
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\bluetile.png">
+      <PackagePath>Content\bluetile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\redtile.png">
+      <PackagePath>Content\redtile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\yellowtile.png">
+      <PackagePath>Content\yellowtile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\background.jpg">
+      <PackagePath>Content\background.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
     </AppxPackagedFile>

@@ -9,6 +9,10 @@ Instructions.xbf
 MainMenu.xbf
 MainPage.xbf
 Project.WinRTXaml.xr.xml
+Content\background.jpg
+Content\bluetile.png
+Content\redtile.png
+Content\yellowtile.png
 Content\Cursor.tkb
 Content\Enemy.tkb
 Content\Medallion.tkb

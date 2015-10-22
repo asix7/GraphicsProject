@@ -374,11 +374,3 @@ C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\qualifiers.txt
 C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
 C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate

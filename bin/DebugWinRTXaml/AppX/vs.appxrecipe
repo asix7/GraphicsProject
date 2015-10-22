@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-22T20:12:45.593</Modified>
+      <Modified>2015-10-22T21:39:03.312</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-22T20:12:45.432</Modified>
+      <Modified>2015-10-22T21:39:03.243</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
@@ -106,6 +106,22 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-22T18:48:27.759</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\bluetile.png">
+      <PackagePath>Content\bluetile.png</PackagePath>
+      <Modified>2015-10-22T21:24:45.907</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\redtile.png">
+      <PackagePath>Content\redtile.png</PackagePath>
+      <Modified>2015-10-22T21:25:35.698</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\yellowtile.png">
+      <PackagePath>Content\yellowtile.png</PackagePath>
+      <Modified>2015-10-22T21:26:14.036</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\Content\background.jpg">
+      <PackagePath>Content\background.jpg</PackagePath>
+      <Modified>2015-10-22T21:35:52.975</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Content\Phong.tkb">
       <PackagePath>Content\Phong.tkb</PackagePath>
       <Modified>2015-10-22T18:51:22.900</Modified>
@@ -136,7 +152,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml">
       <PackagePath>Project.WinRTXaml.xr.xml</PackagePath>
-      <Modified>2015-10-22T19:05:11.821</Modified>
+      <Modified>2015-10-22T21:38:03.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -148,23 +164,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\EndPage.xbf">
       <PackagePath>EndPage.xbf</PackagePath>
-      <Modified>2015-10-22T18:52:12.200</Modified>
+      <Modified>2015-10-22T21:22:05.275</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf">
       <PackagePath>MainMenu.xbf</PackagePath>
-      <Modified>2015-10-22T19:31:25.701</Modified>
+      <Modified>2015-10-22T21:38:04.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf">
       <PackagePath>Instructions.xbf</PackagePath>
-      <Modified>2015-10-22T20:09:38.026</Modified>
+      <Modified>2015-10-22T21:36:41.513</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-10-22T19:05:11.887</Modified>
+      <Modified>2015-10-22T21:22:05.276</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-22T20:12:45.566</Modified>
+      <Modified>2015-10-22T21:38:04.466</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

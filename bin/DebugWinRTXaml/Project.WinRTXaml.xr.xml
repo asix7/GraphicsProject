@@ -139,6 +139,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Stretch" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTip">
@@ -217,6 +218,9 @@
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Project.EndPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
@@ -230,6 +234,7 @@
       <RootProperty Name="LargeChange" />
       <RootProperty Name="SmallChange" />
       <RootProperty Name="StepFrequency" />
+      <RootProperty Name="Foreground" />
       <RootEvent Name="ValueChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
@@ -238,6 +243,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="IsChecked" />
+      <RootProperty Name="FontFamily" />
       <RootEvent Name="Checked" />
     </RootType>
     <RootType FullName="Project.MainMenu" />

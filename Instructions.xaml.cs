@@ -42,6 +42,10 @@ namespace Project
                 "All you need to do is P2W (press to win), press Jump to jump, press Shoot to shoot\n\n" +
                 "If Shoot button is Red, you can't shoot, make sure you are in Yellow Tile, and it will turn green, and you shoot\n\n"+
                 "Enjoy the game scrub, L2P if you die, stop hacking if you don't die...");
+
+            bluehelpblock.Text = "Blue Tile: Extra speed.";
+            redhelpblock.Text = "Red Tile: Reduce speed.";
+            yellowblock.Text = "Yellow Tile: Shooting available.";
         }
 
        
