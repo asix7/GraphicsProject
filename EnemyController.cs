@@ -16,7 +16,7 @@ namespace Project
     {
         // Spacing and counts.
         private int rows = 0;
-        private int enemiesPerRow = 1;
+        private int enemiesPerRow = 2;
         private float colSpacing = 40f;
 
         // Timing and movement.
@@ -48,7 +48,9 @@ namespace Project
             float x = 50;
             for (int col = 0; col < enemiesPerRow; col++)
             {
-                game.Add(new Enemy(game, new Vector3(x, y, 0)));
+                Enemy enemy = new Enemy(game, new Vector3(x, y, 0));
+                game.Add(enemy);
+                //game.player.cursor.AddEnemy(enemy);
                 x += x;
             }
         }
@@ -71,7 +73,7 @@ namespace Project
             // Invoke next wave once current one has ended.
             if (allEnemiesAreDead())
             {
-                nextWave();
+                //nextWave();
             }
         }
 

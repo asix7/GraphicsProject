@@ -275,11 +275,6 @@ C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.t
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
+C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\delta_rocket.tkb
+C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Simple_Ring.tkb
+C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\bitcoin.tkb

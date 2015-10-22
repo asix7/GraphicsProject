@@ -56,6 +56,7 @@ namespace Project
         
 
         public Player player;
+        //public Cursor cursor;
         public int score;
 
 

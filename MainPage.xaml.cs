@@ -54,6 +54,21 @@ namespace Project
             txtPlayerPos.Text = "Player Position: " + playerPos.ToString();
         }
 
+        private void Jump(object sender, RoutedEventArgs e)
+        {
+            game.player.Jump();
+        }
+
+        private void Shoot(object sender, RoutedEventArgs e)
+        {
+            game.player.Shoot();
+        }
+
+        private void SwitchAim(object sender, RoutedEventArgs e)
+        {
+            game.player.cursor.SwitchEnemy();
+        }
+
         // TASK 2: Starts the game.  Not that it seems easier to simply move the game.Run(this) command to this function,
         // however this seems to result in a reduction in texture quality on some machines.  Not sure why this is the case
         // but this is an easy workaround.  Not we are also making the command button invisible after it is clicked

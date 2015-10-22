@@ -19,7 +19,9 @@ namespace Project
         public bool alive = true;
         private Effect effect;
         private Matrix WorldInverseTranspose;
-        
+
+        public Cursor cursor;
+
         //Player movement properties
         private float speed = 0.0f;
         private float base_speed = 100.0f;
@@ -29,7 +31,7 @@ namespace Project
         private float acceleration = 20.0f;
 
         // Projectile properties
-        private float projectileSpeed = 20;
+        private float projectileSpeed = 400f;
 
         // Player jump properties
         private float velocityY = 0;
@@ -76,9 +78,9 @@ namespace Project
             alive = true;
             World = Matrix.Identity;
             type = GameObjectType.Player;
-            player_model = game.Content.Load<Model>("Spaceship");
+            model = game.Content.Load<Model>("Spaceship");
             basicEffect = new BasicEffect(game.GraphicsDevice);
-            BasicEffect.EnableDefaultLighting(player_model, true);
+            BasicEffect.EnableDefaultLighting(model, true);
 
             //effect = game.Content.Load<Effect>("Phong");
 
@@ -92,6 +94,9 @@ namespace Project
 
             //effect = game.Content.Load<Effect>("Gouraud");
             //game.plat
+
+            cursor = new Cursor(game);
+            game.gameObjects.Add(cursor);
         }
 
         // Method to create projectile texture to give to newly created projectiles.
@@ -103,7 +108,17 @@ namespace Project
         // Shoot a projectile.
         private void fire()
         {
-
+            if (game.gameObjects.Contains(cursor.Target))
+            {
+                game.Add(new Projectile(game,
+                "bitcoin",
+                pos,
+                projectileSpeed,
+                //new Vector3(pos.X, 100, pos.Z-500),
+                cursor.Target,
+                GameObjectType.Enemy
+                ));
+            }
         }
 
         // Frame update.
@@ -336,8 +351,7 @@ namespace Project
                 alive = false;
             }
         }
-
-        public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
+        public void Jump()
         {
             if (onGround)
             {
@@ -345,9 +359,25 @@ namespace Project
                 onGround = false;
             }
         }
+
+        public void Shoot()
+        {
+            fire();
+        }
+
+        /*
+        public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
+        {
+            if (onGround)
+            {
+                velocityY = jump_velocity;
+                onGround = false;
+            }
+        }*/
+
         public override void Draw(GameTime gametime)
         {
-            player_model.Draw(game.GraphicsDevice, World, game.camera.View, game.camera.Projection);
+            model.Draw(game.GraphicsDevice, World, game.camera.View, game.camera.Projection);
         }
 
         public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)

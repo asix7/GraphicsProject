@@ -33,6 +33,18 @@ namespace Project
             return modelDict[modelName];
         }
 
+        public MyModel CreateCursor()
+        {
+            VertexPositionColor[] shapeArray = new VertexPositionColor[]
+            {
+                new VertexPositionColor(new Vector3(0f, 0f, 0f), Color.Red), // Front
+                new VertexPositionColor(new Vector3(1f, 1f, 0f), Color.Red),
+                new VertexPositionColor(new Vector3(-1f, 1f, 0f), Color.Red)
+            };
+
+            return new MyModel(game, shapeArray);
+        }
+
         // Create a cube with one texture for all faces.
         public MyModel CreateTexturedCube(String textureName, float size)
         {

@@ -31,6 +31,14 @@ namespace Project
             this.collisionRadius = collisionRadius;
         }
 
+        public MyModel(ProjectGame game, VertexPositionColor[] shapeArray)
+        {
+            this.vertices = Buffer.Vertex.New(game.GraphicsDevice, shapeArray);
+            this.inputLayout = VertexInputLayout.New<VertexPositionColor>(0);
+            vertexStride = Utilities.SizeOf<VertexPositionColor>();
+            modelType = ModelType.Colored;
+        }
+
         public MyModel(ProjectGame game, VertexPositionTexture[] shapeArray, String textureName, float collisionRadius)
         {
             this.vertices = Buffer.Vertex.New(game.GraphicsDevice, shapeArray);

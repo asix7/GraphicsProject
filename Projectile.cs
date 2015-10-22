@@ -18,10 +18,11 @@ namespace Project
         private float squareHitRadius;
 
         private Enemy shooter;
-
+        private Enemy target;
         private Matrix rotation;
         private Vector3 targetPos;
         private BoundingSphere modelBound;
+        private bool isTargetPlayer = false;
 
         float angleX;
         float angleY;
@@ -37,10 +38,31 @@ namespace Project
             this.targetType = targetType;
             squareHitRadius = hitRadius * hitRadius;
             collisionRadius = squareHitRadius;
-
+            isTargetPlayer = true;
             //GetParamsFromModel();
 
             model = game.Content.Load<Model>("STDARM");
+            basicEffect = new BasicEffect(game.GraphicsDevice)
+            {
+                World = Matrix.Identity,
+                View = game.camera.View,
+                Projection = game.camera.Projection
+            };
+            BasicEffect.EnableDefaultLighting(model, true);
+
+        }
+
+        public Projectile(ProjectGame game, string model_name, Vector3 pos, float velocity, Enemy target, GameObjectType targetType)
+        {
+            this.game = game;
+            this.pos = pos;
+            this.velocity = velocity;
+            this.target = target;
+            this.targetType = targetType;
+            squareHitRadius = hitRadius * hitRadius;
+            collisionRadius = squareHitRadius;
+
+            model = game.Content.Load<Model>(model_name);
             basicEffect = new BasicEffect(game.GraphicsDevice)
             {
                 World = Matrix.Identity,
@@ -58,20 +80,30 @@ namespace Project
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             float time = (float)gameTime.TotalGameTime.TotalSeconds;
             modelBound = model.CalculateBounds();
+
             // Apply velocity to position.
-            pos += Vector3.Normalize(new Vector3(game.player.pos.X, targetPos.Y, targetPos.Z) - pos) * timeDelta * velocity;
+            if (isTargetPlayer)
+                pos += Vector3.Normalize(new Vector3(game.player.pos.X, targetPos.Y, targetPos.Z) - pos) * timeDelta * velocity;
+            else
+                pos += Vector3.Normalize(new Vector3(target.pos.X, target.pos.Y, target.pos.Z) - pos) * timeDelta * velocity;
 
             pointToTarget(game.player.pos, timeDelta);
             basicEffect.World = (Matrix.Translation(-modelBound.Center.X, -modelBound.Center.Y, -modelBound.Center.Z) * Matrix.Scaling(1) * rotation) * Matrix.Translation(pos);
 
-            // remove the projectile...
-            if (pos.Y < -10)
+            // remove the projectile if out of bound
+            if (pos.Y < -10 || pos.Y > 110)
             {
                 game.Remove(this);
             }
-            // Check if collided with the target type of object.
-            //checkForCollisions();
-            checkFor3DCollisions();
+
+            if (!game.gameObjects.Contains(target))
+            {
+                game.Remove(this);
+            }
+
+                // Check if collided with the target type of object.
+                //checkForCollisions();
+                checkFor3DCollisions();
             //check3DCollision();
         }
 

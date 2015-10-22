@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-22T07:27:37.585</Modified>
+      <Modified>2015-10-22T13:59:06.853</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe">
       <PackagePath>Project.WinRTXaml.exe</PackagePath>
-      <Modified>2015-10-22T07:27:14.468</Modified>
+      <Modified>2015-10-22T13:58:44.839</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\SharpDX\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
@@ -142,6 +142,18 @@
       <PackagePath>Content\STDARM.tkb</PackagePath>
       <Modified>2015-10-22T05:35:25.444</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\delta_rocket.tkb">
+      <PackagePath>Content\delta_rocket.tkb</PackagePath>
+      <Modified>2015-10-22T10:08:21.531</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Simple_Ring.tkb">
+      <PackagePath>Content\Simple_Ring.tkb</PackagePath>
+      <Modified>2015-10-22T12:27:27.127</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\bitcoin.tkb">
+      <PackagePath>Content\bitcoin.tkb</PackagePath>
+      <Modified>2015-10-22T13:40:34.498</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Content\Textures.tkb">
       <PackagePath>Content\Textures.tkb</PackagePath>
       <Modified>2015-10-22T05:18:14.000</Modified>
@@ -172,11 +184,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-10-22T05:35:27.804</Modified>
+      <Modified>2015-10-22T13:48:05.156</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-22T07:27:37.554</Modified>
+      <Modified>2015-10-22T13:58:45.118</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
