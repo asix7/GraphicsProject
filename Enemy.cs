@@ -136,7 +136,7 @@ namespace Project
         // Kill the Enemy and add points to the score
         public void Hit()
         {
-            game.player.enemy_score += 100;
+            game.player.enemy_score += 100 * (int)game.difficulty;
             game.Remove(this);
         }
 

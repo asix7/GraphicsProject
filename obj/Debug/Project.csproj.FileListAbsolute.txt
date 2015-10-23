@@ -1,14 +1,19 @@
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Cursor.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Medallion.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Sphere.tkb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\App.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\EndPage.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.pdb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\SpaceGlider.WinRTXaml.xr.xml
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\SpaceGlider.WinRTXaml.exe
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\SpaceGlider.WinRTXaml.pdb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\resources.pri
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Project.build.appxrecipe
@@ -45,6 +50,8 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\App.g.i.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\App.g.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Common\StandardStyles.g.i.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Common\StandardStyles.g.cs
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\EndPage.g.i.cs
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\EndPage.g.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainMenu.g.i.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainMenu.g.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Instructions.g.i.cs
@@ -54,19 +61,29 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainPage.g.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\XamlTypeInfo.g.cs
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\App.xaml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Common\StandardStyles.xaml
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\EndPage.xaml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainMenu.xaml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Instructions.xaml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainPage.xaml
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\App.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Common\StandardStyles.xbf
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\EndPage.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainMenu.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Instructions.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MainPage.xbf
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\XamlSaveStateFile.xml
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Project.WinRTXaml.exe
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Project.WinRTXaml.pdb
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SpaceGlider.WinRTXaml.exe
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SpaceGlider.WinRTXaml.pdb
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\en-us\SharpDX.Properties.Resources.resw
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\Project.csproj.GenerateResource.Cache
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
+C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX.pri
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\qualifiers.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\priconfig.xml
@@ -81,296 +98,3 @@ C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\enemy projectile.png
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\player projectile.png
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\App.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.pdb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\resources.pri
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.build.appxrecipe
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.dll
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.csprojResolveAssemblyReference.cache
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.g.i.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.g.i.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.g.i.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.g.i.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.g.i.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\XamlTypeInfo.g.cs
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.xaml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.xaml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.xaml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.xaml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.xaml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.xbf
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\XamlSaveStateFile.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.WinRTXaml.exe
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.WinRTXaml.pdb
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\en-us\SharpDX.Properties.Resources.resw
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.csproj.GenerateResource.Cache
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX.pri
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\qualifiers.txt
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\priconfig.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\priconfig.xml.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\layout.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\layout.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\resources.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\resources.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\pri.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\pri.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.txt
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
-E:\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Textures.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Gouraud.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Phong2.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Phong3.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\STDARM.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\enemy projectile.png
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\player projectile.png
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\App.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.pdb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\resources.pri
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Project.build.appxrecipe
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.dll
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.csprojResolveAssemblyReference.cache
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.g.i.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.g.i.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.g.i.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.g.i.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.g.i.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\XamlTypeInfo.g.cs
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.xaml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.xaml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.xaml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.xaml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.xaml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\App.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Common\StandardStyles.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainMenu.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Instructions.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MainPage.xbf
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\XamlSaveStateFile.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.WinRTXaml.exe
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.WinRTXaml.pdb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\en-us\SharpDX.Properties.Resources.resw
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\Project.csproj.GenerateResource.Cache
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX.pri
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\SharpDX\qualifiers.txt
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\priconfig.xml
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\priconfig.xml.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\layout.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\layout.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\resources.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\resources.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\pri.resfiles
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\pri.resfiles.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.txt
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\obj\Debug\ProjectArchitectures.txt
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\delta_rocket.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\Simple_Ring.tkb
-C:\Users\jchee\Dropbox\COMP30019 Graphics\GraphicsProject\bin\DebugWinRTXaml\Content\bitcoin.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\sphere.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Cursor.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\bin\DebugWinRTXaml\Content\Medallion.tkb
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\layout.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\Resources.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\pri.resfiles.intermediate
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml
-C:\Users\localtemp\Documents\GitHub\GraphicsProject\obj\Debug\SharpDX\priconfig.xml.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Project.csprojResolveAssemblyReference.cache
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\App.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\App.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Common\StandardStyles.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Common\StandardStyles.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainMenu.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainMenu.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Instructions.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Instructions.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainPage.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainPage.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\XamlTypeInfo.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\App.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Common\StandardStyles.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainMenu.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Instructions.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainPage.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\App.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Common\StandardStyles.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainMenu.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Instructions.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MainPage.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\XamlSaveStateFile.xml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Project.WinRTXaml.exe
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Project.WinRTXaml.pdb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Platform_Textures.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Phong.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Enemy.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Spaceship.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Cursor.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Medallion.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Content\Sphere.tkb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\App.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Common\StandardStyles.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\EndPage.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainMenu.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Instructions.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\MainPage.xbf
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.xr.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.exe
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.WinRTXaml.pdb
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\resources.pri
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\AppxManifest.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\Project.build.appxrecipe
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.dll
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.D3DCompiler.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct2D1.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Direct3D11.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.DXGI.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.MediaFoundation.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Audio.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Game.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Graphics.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Input.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.Toolkit.Yaml.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XAudio2.xml
-C:\Users\jchee\Desktop\GraphicsProject\bin\DebugWinRTXaml\SharpDX.XInput.xml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\EndPage.g.i.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\EndPage.g.cs
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\EndPage.xaml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\EndPage.xbf
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\en-us\SharpDX.Properties.Resources.resw
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\Project.csproj.GenerateResource.Cache
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX.pri
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\SharpDX\qualifiers.txt
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\priconfig.xml
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\priconfig.xml.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\layout.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\layout.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\resources.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\resources.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\pri.resfiles
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\pri.resfiles.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\qualifiers.txt
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\qualifiers.txt.intermediate
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\jchee\Desktop\GraphicsProject\obj\Debug\ProjectArchitectures.txt

@@ -38,7 +38,9 @@ namespace Project
         }
         private void StartGame(object sender, RoutedEventArgs e)
         {
+
             parent.StartGame();
+            parent.Children.Remove(this);
         }
 
         private void LoadInstructions(object sender, RoutedEventArgs e)

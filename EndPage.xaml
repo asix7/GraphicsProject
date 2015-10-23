@@ -12,8 +12,9 @@
             <ImageBrush Stretch="Fill" ImageSource="Content/background.jpg"/>
         </Grid.Background>
         <Button x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Margin="457,443,0,0" VerticalAlignment="Top" Height="125" Width="516" Click="ExitGame" FontSize="40"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="534,94,493,603" TextWrapping="Wrap" Text="GAME OVER" VerticalAlignment="Center" Width="339" Height="71" FontSize="40"/>
-        <TextBlock x:Name="txtHighScore" HorizontalAlignment="Left" Margin="582,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Height="80" FontSize="26.667"/>
+        <Button x:Name="buttonExit1" Content="Go Back To Main Menu" HorizontalAlignment="Left" Margin="457,300,0,0" VerticalAlignment="Top" Height="125" Width="516" Click="ToMainMenu" FontSize="40"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="582,92,553,631" TextWrapping="Wrap" Text="GAME OVER" VerticalAlignment="Center" Width="231" Height="45" FontSize="40"/>
+        <TextBlock x:Name="txtHighScore" HorizontalAlignment="Left" Margin="556,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Height="80" FontSize="26.667"/>
 
     </Grid>
 </Page>

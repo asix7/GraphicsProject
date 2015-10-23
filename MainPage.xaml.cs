@@ -66,19 +66,6 @@ namespace Project
             game.Run(swapppy);
         }
 
-        public void Reload()
-        {
-            
-            //game.Dispose();
-            //InitializeComponent();
-            Loaded += OnLoaded;
-            //mainMenu = new MainMenu(this);
-            //endPage = new EndPage(this);
-
-            this.Children.Add(mainMenu);
-            InGameView(Visibility.Collapsed);
-        }
-
         public void UpdateShootButton(bool canShoot)
         {
             if (canShoot)
@@ -142,9 +129,6 @@ namespace Project
         public void EndGame(int score)
         {
             endPage = new EndPage(this, score);
-            //game.UnloadContent();
-            //game.Dispose();
-            //this.Children.Remove(this);
             this.Children.Add(endPage);
         }
     }

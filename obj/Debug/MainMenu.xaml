@@ -12,11 +12,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="Content/background.jpg"/>
         </Grid.Background>
-        <Button x:ConnectionId='1' x:Name="cmdStart" Content="Start" HorizontalAlignment="Left" Height="77" Margin="503,166,0,0" VerticalAlignment="Top" Width="163"                  />
+        <Button x:ConnectionId='1' x:Name="cmdStart" Content="Start" HorizontalAlignment="Left" Height="77" Margin="569,168,0,0" VerticalAlignment="Top" Width="163"                  />
         <Slider x:ConnectionId='2' x:Name="sldDifficulty" HorizontalAlignment="Left" Height="38" Margin="208,79,0,0" VerticalAlignment="Top" Width="159"                                 Value="1" IsTabStop="False" Minimum="0.5" Maximum="3" LargeChange="0.1" SmallChange="0.01" StepFrequency="0.01" Foreground="#FF8AC52E"/>
-        <Button x:ConnectionId='3' x:Name="cmdInstructions" Content="Instructions" HorizontalAlignment="Left" Height="77" Margin="503,291,0,0" VerticalAlignment="Top" Width="163"                         />
-        <Button x:ConnectionId='4' x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Height="77" Margin="503,419,0,0" VerticalAlignment="Top" Width="163"                 />
-        <CheckBox x:ConnectionId='5' x:Name="debugBox" Content="Developer's View" HorizontalAlignment="Left" Margin="205,192,0,0" VerticalAlignment="Top" IsChecked="False"                     FontFamily="Global User Interface"/>
+        <Button x:ConnectionId='3' x:Name="cmdInstructions" Content="Instructions" HorizontalAlignment="Left" Height="77" Margin="569,278,0,0" VerticalAlignment="Top" Width="163"                         />
+        <Button x:ConnectionId='4' x:Name="buttonExit" Content="Exit Game" HorizontalAlignment="Left" Height="77" Margin="569,392,0,0" VerticalAlignment="Top" Width="163"                 />
         <TextBlock x:Name="txtSlider" HorizontalAlignment="Left" Margin="208,69,0,0" TextWrapping="Wrap" Text="Difficulty" VerticalAlignment="Top" Height="22" Width="141"/>
     </Grid>
 </Page>

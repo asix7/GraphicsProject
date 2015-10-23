@@ -45,15 +45,8 @@ namespace Project
         private void ToMainMenu(object sender, RoutedEventArgs e)
         {
             
-            //parent.game = new ProjectGame(parent);
-            //parent.game.Run(parent);
-            //MainMenu mainMenu = new MainMenu(parent);
-            //parent.Children.Add(mainMenu);
-            
-            parent.Reload();
-            //Application.LoadComponent(parent, new Uri("/MainPage.xaml"));
-            
-            //parent.Children.Add(parent.mainMenu);
+            MainMenu mainMenu = new MainMenu(parent);
+            parent.Children.Add(mainMenu);            
             parent.Children.Remove(this);
         }
 

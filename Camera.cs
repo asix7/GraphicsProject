@@ -23,8 +23,6 @@ namespace Project
         private float platform_midpoint = 50.0f;
 
 
-        private Vector3 cameraRot;
-
         // Properties
         public Vector3 Position
         {

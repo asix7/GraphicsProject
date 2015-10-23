@@ -35,7 +35,7 @@ namespace Project
         public int[,] platform;
 
         // Z coordinate to start creating the each new platform
-        static float z_position = 0;
+        public static float z_position = 0;
 
         // Z coordinate that the platform instance start and ends
         public float z_position_start;

@@ -7,15 +7,18 @@
     <ProjectGuid>{5114D1A3-5423-4B73-8729-57CD90DC4BEC}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Project</RootNamespace>
-    <AssemblyName>Project.WinRTXaml</AssemblyName>
+    <RootNamespace>SpaceGlider</RootNamespace>
+    <AssemblyName>SpaceGlider.WinRTXaml</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>MiniCube.WinRTXaml_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Project_StoreKey.pfx</PackageCertificateKeyFile>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <TargetFrameworkVersion />
+    <PackageCertificateThumbprint>C85026CBF439D1B2FEEB8AB0CE6CF702DFABEAB0</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,6 +82,8 @@
     <Content Include="Content\bluetile.png" />
     <Content Include="Content\redtile.png" />
     <Content Include="Content\yellowtile.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="Project_StoreKey.pfx" />
     <ToolkitTexture Include="Content\Platform_Textures.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitTexture>
@@ -176,6 +181,9 @@
     <ToolkitModel Include="Content\Sphere.blend">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ToolkitModel>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_TemporaryKey.pfx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

@@ -118,11 +118,19 @@ namespace Project
 
         protected override void LoadContent()
         {
+            SetGameObjects();
+
+            base.LoadContent();
+        }
+
+        void SetGameObjects()
+        {
             // Initialise game object containers.
             gameObjects = new List<GameObject>();
             addedGameObjects = new Stack<GameObject>();
             removedGameObjects = new Stack<GameObject>();
 
+            lightManager = new LightManager(this);
 
             // Create the first platform and get the height
             Platform first_platform = new Platform(this);
@@ -147,8 +155,6 @@ namespace Project
             gameObjects.Add(new EnemyController(this));
 
             spriteBatch = ToDisposeContent(new SpriteBatch(GraphicsDevice));
-
-            base.LoadContent();
         }
 
         protected override void Initialize()
@@ -156,7 +162,6 @@ namespace Project
             Window.Title = "Space Glider";
 
             camera = new Camera(this);
-            lightManager = new LightManager(this);
 
             base.Initialize();
         }
@@ -168,44 +173,47 @@ namespace Project
             {
                 if (!player.alive)
                 {
-                    // When player dies
-                    for (int i = 0; i < gameObjects.Count; i++)
-                    {
-                        Remove(gameObjects[i]);
-                    }
-                    this.UnloadContent();
-                    this.Exit();
+                    Platform.z_position = 0;
+                    Platform.last_platform = new int[,] { { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 }, { -1, 0 } };
+                    Platform.next_platform = new int[,] { { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 }, { 1, 0 } };
 
+                    Platform.standing_platform = null;
+                    Platform.next_standing_platform = null;
+                    SetGameObjects();
+                    started = false;
                     mainPage.EndGame(score);
                 }
-                lightManager.Update();
-                keyboardState = keyboardManager.GetState();
-                flushAddedAndRemovedGameObjects();
-
-                // pass gameTime to let camera move along
-                camera.Update(gameTime, player.pos);
-
-                accelerometerReading = input.accelerometer.GetCurrentReading();
-
-                for (int i = 0; i < gameObjects.Count; i++)
+                else
                 {
-                    gameObjects[i].Update(gameTime);
+                    lightManager.Update();
+                    keyboardState = keyboardManager.GetState();
+                    flushAddedAndRemovedGameObjects();
+
+                    // pass gameTime to let camera move along
+                    camera.Update(gameTime, player.pos);
+
+                    accelerometerReading = input.accelerometer.GetCurrentReading();
+
+                    for (int i = 0; i < gameObjects.Count; i++)
+                    {
+                        gameObjects[i].Update(gameTime);
+                    }
+
+                    // Update score board on the game page
+                    mainPage.UpdateScore(score);
+
+                    // Update camera and player position for testing
+                    mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, player.max_speed);
+                    mainPage.UpdateShootButton(player.fireOn);
+
+                    if (keyboardState.IsKeyDown(Keys.Escape))
+                    {
+                        this.Exit();
+                        this.Dispose();
+                        App.Current.Exit();
+                    }
+                    // Handle base.Update
                 }
-
-                // Update score board on the game page
-                mainPage.UpdateScore(score);
-
-                // Update camera and player position for testing
-                mainPage.DisplayCameraPlayerPos(camera.Position, camera.cameraPos, player.pos, player.max_speed);
-                mainPage.UpdateShootButton(player.fireOn);
-
-                if (keyboardState.IsKeyDown(Keys.Escape))
-                {
-                    this.Exit();
-                    this.Dispose();
-                    App.Current.Exit();
-                }
-                // Handle base.Update
             }
             base.Update(gameTime);
 

@@ -35,17 +35,17 @@ namespace Project
         {
             InitializeComponent();
             this.parent = parent;
-
+            parent.InGameView(Visibility.Collapsed);
             txtInstructions.Text = ("Jump around, dodge enemy projectile, don't die\n\n" + 
-                "Blue Tile gives extra speed, Red Tile gives extra vertical, Yellow tile gives permission to shoot\n\n" +
+                "Blue Tile gives extra speed, Red Tile lets you jump higher, Grey tile gives permission to shoot\n\n" +
                 "You don't need to aim, sophisticated path finding algorithm is implemented on the projectile, to boost your gameplay and performance\n" +
                 "All you need to do is P2W (press to win), press Jump to jump, press Shoot to shoot\n\n" +
                 "If Shoot button is Red, you can't shoot, make sure you are in Yellow Tile, and it will turn green, and you shoot\n\n"+
                 "Enjoy the game scrub, L2P if you die, stop hacking if you don't die...");
 
             bluehelpblock.Text = "Blue Tile: Extra speed.";
-            redhelpblock.Text = "Red Tile: Reduce speed.";
-            yellowblock.Text = "Yellow Tile: Shooting available.";
+            redhelpblock.Text = "Red Tile: Jump Higher.";
+            yellowblock.Text = "Grey Tile: Enable Shooting.";
         }
 
        
